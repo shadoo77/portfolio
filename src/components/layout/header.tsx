@@ -45,7 +45,7 @@ export function Header() {
             aria-label="GitHub"
             className="text-muted-foreground hover:bg-muted hover:text-foreground hidden rounded-md p-2 transition-colors sm:inline-flex"
           >
-            <GithubIcon className="size-[18px]" />
+            <GithubIcon className="size-4.5" />
           </a>
           <a
             href="https://www.linkedin.com/in/shadi-amr/"
@@ -54,7 +54,7 @@ export function Header() {
             aria-label="LinkedIn"
             className="text-muted-foreground hover:bg-muted hover:text-foreground hidden rounded-md p-2 transition-colors sm:inline-flex"
           >
-            <LinkedinIcon className="size-[18px]" />
+            <LinkedinIcon className="size-4.5" />
           </a>
           <LocaleSwitcher />
           <ThemeToggle />
