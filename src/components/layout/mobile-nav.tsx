@@ -2,6 +2,7 @@
 
 import { Mail, Menu, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,10 +18,10 @@ import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { GithubIcon, LinkedinIcon } from "@/components/shared/icons";
 
 const links = [
-  { href: "#work", key: "work" },
-  { href: "#experience", key: "experience" },
-  { href: "#about", key: "about" },
-  { href: "#contact", key: "contact" },
+  { href: "/work", key: "work" },
+  { href: "/#experience", key: "experience" },
+  { href: "/#about", key: "about" },
+  { href: "/#contact", key: "contact" },
 ] as const;
 
 export function MobileNav() {
@@ -64,12 +65,12 @@ export function MobileNav() {
         <nav className="flex flex-col gap-1 p-4">
           {links.map((link) => (
             <SheetClose key={link.href} asChild>
-              <a
+              <Link
                 href={link.href}
                 className="hover:bg-muted rounded-lg px-3 py-3 text-base font-medium transition-colors"
               >
                 {t(link.key)}
-              </a>
+              </Link>
             </SheetClose>
           ))}
         </nav>

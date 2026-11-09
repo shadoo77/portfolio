@@ -24,24 +24,30 @@ export function Header() {
         </Link>
 
         <nav className="text-muted-foreground hidden items-center gap-8 text-[15px] transition-[gap] duration-300 group-data-[scrolled=true]:gap-6 md:flex">
-          <a href="#work" className="hover:text-foreground transition-colors">
+          <Link
+            href="/work"
+            className="hover:text-foreground transition-colors"
+          >
             {t("work")}
-          </a>
-          <a
-            href="#experience"
+          </Link>
+          <Link
+            href="/#experience"
             className="hover:text-foreground transition-colors"
           >
             {t("experience")}
-          </a>
-          <a href="#about" className="hover:text-foreground transition-colors">
+          </Link>
+          <Link
+            href="/#about"
+            className="hover:text-foreground transition-colors"
+          >
             {t("about")}
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            href="/#contact"
             className="hover:text-foreground transition-colors"
           >
             {t("contact")}
-          </a>
+          </Link>
         </nav>
 
         <div className="flex items-center gap-1">

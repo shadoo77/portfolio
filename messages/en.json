@@ -35,8 +35,24 @@
     "note": "These four are a few of my hobby projects. The rest of my work was delivered at the companies and agencies I've worked for, so it isn't public.",
     "code": "View code",
     "live": "Live demo",
+    "readProject": "Read project",
+    "allProjects": "All projects",
     "caseStudySoon": "Case study coming soon",
     "tech": "Tech"
+  },
+  "WorkPage": {
+    "eyebrow": "01 — Side projects",
+    "title": "All side projects",
+    "description": "Everything I build in my own time, filterable by technology. Open a project for the short write-up, stack and links to the code.",
+    "filterLabel": "Filter projects by technology",
+    "all": "All",
+    "count": "{count, plural, =1 {# project} other {# projects}}",
+    "empty": "No projects match that filter.",
+    "overviewTitle": "Overview",
+    "highlightsTitle": "What I built",
+    "stackTitle": "Stack",
+    "back": "All projects",
+    "moreWork": "Back to all projects"
   },
   "Experience": {
     "eyebrow": "02 — Experience",

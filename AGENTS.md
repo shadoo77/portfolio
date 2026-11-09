@@ -44,16 +44,18 @@ src/
   app/[locale]/          # every route lives under the locale segment
     layout.tsx           # root layout: html/lang/dir, fonts, providers
     page.tsx             # landing page
+    work/                # /work overview and /work/[slug] project pages
     not-found.tsx
   components/
     layout/              # header, mobile nav, footer
     sections/            # hero, selected-work, experience, about, contact
-    shared/              # locale switcher, theme toggle, icons, headings
+    work/                # client-side project filter/browser
+    shared/              # locale switcher, theme toggle, icons, headings, project card
     providers/           # theme + TanStack Query providers
     ui/                  # shadcn primitives (generated — avoid hand edits)
   config/                # site.ts (identity/links), projects.ts, experience.ts
   i18n/                  # routing, request config, navigation helpers
-  lib/env.ts             # Zod-validated environment
+  lib/                   # env validation and localized metadata helper
   types/                 # next-intl type augmentation
 messages/{en,nl,ar}.json # all UI copy
 docs/roadmap.md          # the only status tracker

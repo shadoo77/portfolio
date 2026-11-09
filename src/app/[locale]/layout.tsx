@@ -4,8 +4,10 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Direction } from "radix-ui";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
+import { ogLocales } from "@/lib/metadata";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { Header } from "@/components/layout/header";
@@ -27,12 +29,6 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
 });
-
-const ogLocales = {
-  en: "en_US",
-  nl: "nl_NL",
-  ar: "ar_AR",
-} as const;
 
 // Runs before hydration so the stored theme is applied without a flash.
 // Kept in sync with the ThemeProvider config below: class attribute,
@@ -61,19 +57,9 @@ export async function generateMetadata({
     applicationName: siteConfig.name,
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
     creator: siteConfig.name,
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        en: "/en",
-        nl: "/nl",
-        ar: "/ar",
-        "x-default": "/en",
-      },
-    },
     openGraph: {
       type: "website",
       locale: ogLocales[locale],
-      url: `/${locale}`,
       siteName: siteConfig.name,
       title: t("title"),
       description: t("description"),
@@ -104,6 +90,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} ${plexArabic.variable} h-full`}
     >
       <head>
@@ -126,13 +113,15 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <QueryProvider>
-            <Direction.DirectionProvider dir={dir}>
-              <NextIntlClientProvider>
-                <Header />
-                <div className="flex-1">{children}</div>
-                <Footer />
-              </NextIntlClientProvider>
-            </Direction.DirectionProvider>
+            <NuqsAdapter>
+              <Direction.DirectionProvider dir={dir}>
+                <NextIntlClientProvider>
+                  <Header />
+                  <div className="flex-1">{children}</div>
+                  <Footer />
+                </NextIntlClientProvider>
+              </Direction.DirectionProvider>
+            </NuqsAdapter>
           </QueryProvider>
         </ThemeProvider>
       </body>

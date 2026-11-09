@@ -35,8 +35,24 @@
     "note": "Deze vier zijn een paar van mijn hobbyprojecten. De rest van mijn werk is opgeleverd bij de bedrijven en bureaus waar ik heb gewerkt, en staat dus niet online.",
     "code": "Bekijk code",
     "live": "Live demo",
+    "readProject": "Bekijk project",
+    "allProjects": "Alle projecten",
     "caseStudySoon": "Case study volgt",
     "tech": "Tech"
+  },
+  "WorkPage": {
+    "eyebrow": "01 — Hobbyprojecten",
+    "title": "Alle hobbyprojecten",
+    "description": "Alles wat ik in mijn eigen tijd bouw, te filteren op technologie. Open een project voor de korte toelichting, stack en links naar de code.",
+    "filterLabel": "Filter projecten op technologie",
+    "all": "Alles",
+    "count": "{count, plural, =1 {# project} other {# projecten}}",
+    "empty": "Geen projecten voor dit filter.",
+    "overviewTitle": "Overzicht",
+    "highlightsTitle": "Wat ik heb gebouwd",
+    "stackTitle": "Stack",
+    "back": "Alle projecten",
+    "moreWork": "Terug naar alle projecten"
   },
   "Experience": {
     "eyebrow": "02 — Ervaring",
