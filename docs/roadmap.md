@@ -13,7 +13,7 @@ there are no separate task files.
 | Foundation           | ✅     | Next.js 16.4, React 19.3, TypeScript, Tailwind v4, pnpm       |
 | Design system        | ✅     | Dark-first tokens, Geist + IBM Plex Sans Arabic, shadcn/ui    |
 | Internationalisation | ✅     | `en` / `nl` / `ar`, RTL, locale-aware metadata and hreflang   |
-| Landing page         | 🚧     | Hero, selected work, about and contact sections live          |
+| Landing page         | 🚧     | Hero, side projects, experience, about and contact sections   |
 | Case studies         | ⬜     | Content model and detail routes not started                   |
 | Dynamic features     | ⬜     | Contact action, GitHub section, CV download                   |
 | Quality & SEO        | 🚧     | Lint, typecheck, build and CI green; tests/OG/sitemap pending |
@@ -41,21 +41,20 @@ there are no separate task files.
 - ✅ Theme toggle with hydration-safe rendering
 - ✅ Footer with colophon and social links
 - ✅ Skip-to-content link, logical CSS properties (`ps`/`pe`/`ms`/`me`)
-- ⬜ Mobile navigation sheet
-- ⬜ Scroll-reveal motion (Motion) with reduced-motion support
+- ✅ Mobile navigation sheet with section links, locale switcher, theme toggle
+- ✅ Sticky header that shrinks on scroll with reduced-motion support
 
 ## Phase 2 — Core pages 🚧
 
 - ✅ Hero: availability badge, portrait, CTAs, stats, social links
 - ✅ Selected work grid with the four featured projects, public repo links and a
   side-project disclaimer
+- ✅ Experience timeline (This is Development, Gofilex, 4net, We Are Eves)
 - ✅ About section: bio, languages, interests
 - ✅ Contact CTA section
-- ⬜ Experience timeline (This Development, Gofilex, 4NET, We Are Eves)
 - ⬜ Contact form (Zod + react-hook-form + server action + Resend)
 - ⬜ `/work` overview route with tag filtering (`nuqs`)
 - ⬜ `/work/[slug]` case-study route
-- ⬜ Dedicated `/about` and `/contact` routes
 
 ## Phase 3 — Content ⬜
 
@@ -83,6 +82,7 @@ there are no separate task files.
 - ⬜ JSON-LD `Person` schema with `knowsLanguage`
 - ⬜ Playwright smoke tests including Arabic/RTL
 - ⬜ Lighthouse CI budgets (≥ 95 across categories)
+- ⬜ Scroll-reveal motion (Motion) with reduced-motion support
 - ⬜ Accessibility audit (keyboard, focus, contrast)
 
 ## Phase 6 — Launch ⬜
@@ -100,6 +100,7 @@ there are no separate task files.
 - 💡 Command palette
 - 💡 GitHub contribution graph
 - 💡 Live demos for featured projects
+- 💡 Dedicated `/about` and `/contact` routes once long-form content justifies them
 - 💡 Testimonials or recommendations section
 
 ## Assets and access needed
@@ -127,6 +128,8 @@ there are no separate task files.
 | 2026-11-09 | Work grid is labelled as side projects with an explicit disclaimer         | The four featured repos are hobbies; professional work is company-owned                |
 | 2026-11-09 | Theme script hoisted into the layout `<head>` via `next/script`            | React 19 rejects executable scripts rendered inside client components                  |
 | 2026-11-09 | Sticky header shrinks via scroll listener + `data-scrolled` toggle         | Universal support and simple Tailwind classes; CSS scroll-timeline needs a JS fallback |
+| 2026-11-09 | Experience as a landing section, not a `/about` route                      | One scroll-telling story; four roles are too thin for a dedicated page                 |
+| 2026-11-09 | Scroll-reveal motion moved to Phase 5                                      | Decoration only; it should not gate content work                                       |
 
 ## Changelog
 
@@ -140,4 +143,6 @@ there are no separate task files.
 - **2026-11-09** — Hero stats aligned to the CV (`7+` JavaScript, `7+` React, `5+` Next.js); location now includes Utrecht.
 - **2026-11-09** — Work section relabelled as side projects with a disclaimer; repo links for CV Maker 2026 and DeepNotLoud; live demo link for CV Maker.
 - **2026-11-09** — Header and logo enlarged; sticky header shrinks on scroll with a passive listener and reduced-motion support.
+- **2026-11-09** — Mobile navigation sheet added with section links, locale switcher, theme toggle and email CTA.
+- **2026-11-09** — Experience timeline section added between Work and About, sourced from the CV with EN/NL/AR copy.
 - **2026-11-09** — Fixed React 19 "script tag" console error by hoisting the theme init script into the layout head.

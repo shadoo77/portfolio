@@ -6,6 +6,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/shared/icons";
 import { LocaleSwitcher } from "@/components/shared/locale-switcher";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { ScrollHeader } from "@/components/layout/scroll-header";
+import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function Header() {
   const t = useTranslations("Nav");
@@ -25,6 +26,12 @@ export function Header() {
         <nav className="text-muted-foreground hidden items-center gap-8 text-[15px] transition-[gap] duration-300 group-data-[scrolled=true]:gap-6 md:flex">
           <a href="#work" className="hover:text-foreground transition-colors">
             {t("work")}
+          </a>
+          <a
+            href="#experience"
+            className="hover:text-foreground transition-colors"
+          >
+            {t("experience")}
           </a>
           <a href="#about" className="hover:text-foreground transition-colors">
             {t("about")}
@@ -68,6 +75,7 @@ export function Header() {
               {t("contact")}
             </a>
           </Button>
+          <MobileNav />
         </div>
       </div>
     </ScrollHeader>

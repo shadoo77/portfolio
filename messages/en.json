@@ -5,8 +5,11 @@
   },
   "Nav": {
     "work": "Work",
+    "experience": "Experience",
     "about": "About",
     "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "skipToContent": "Skip to content"
   },
   "Hero": {
@@ -35,8 +38,13 @@
     "caseStudySoon": "Case study coming soon",
     "tech": "Tech"
   },
+  "Experience": {
+    "eyebrow": "02 — Experience",
+    "title": "Where I've worked",
+    "description": "Four roles across product companies and agencies in the Netherlands. Client work is private, so this is the short version."
+  },
   "About": {
-    "eyebrow": "02 — About",
+    "eyebrow": "03 — About",
     "title": "Frontend-focused, fullstack capable",
     "body": "7+ years in the React ecosystem, with a strong bias toward performance, accessibility and maintainable design systems. I've worked across product companies and agencies in the Netherlands, pairing pixel-perfect UI work with the backend when the problem calls for it.",
     "languagesTitle": "Languages",
@@ -54,7 +62,7 @@
     ]
   },
   "Contact": {
-    "eyebrow": "03 — Contact",
+    "eyebrow": "04 — Contact",
     "title": "Let's build something that lasts.",
     "body": "Hiring, collaborating or just curious? My inbox is open.",
     "email": "Email me",

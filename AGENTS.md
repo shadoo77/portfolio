@@ -46,12 +46,12 @@ src/
     page.tsx             # landing page
     not-found.tsx
   components/
-    layout/              # header, footer
-    sections/            # hero, selected-work, about, contact
+    layout/              # header, mobile nav, footer
+    sections/            # hero, selected-work, experience, about, contact
     shared/              # locale switcher, theme toggle, icons, headings
     providers/           # theme + TanStack Query providers
     ui/                  # shadcn primitives (generated — avoid hand edits)
-  config/                # site.ts (identity/links), projects.ts (featured work)
+  config/                # site.ts (identity/links), projects.ts, experience.ts
   i18n/                  # routing, request config, navigation helpers
   lib/env.ts             # Zod-validated environment
   types/                 # next-intl type augmentation
