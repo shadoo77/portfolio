@@ -1,0 +1,83 @@
+{
+  "Metadata": {
+    "title": "Mohamad Shadi Omar — Senior Frontend Developer",
+    "description": "Senior frontend- en fullstackdeveloper in Nederland. Zeven jaar JavaScript, een diepe focus op React en Next.js, en de gewoonte snel te leveren zonder concessies aan kwaliteit."
+  },
+  "Nav": {
+    "work": "Werk",
+    "about": "Over",
+    "contact": "Contact",
+    "skipToContent": "Naar inhoud"
+  },
+  "Hero": {
+    "availability": "Beschikbaar voor senior frontendrollen",
+    "eyebrow": "Senior Frontend / Fullstack Developer",
+    "name": "Mohamad Shadi Omar",
+    "summary": "Ik bouw snelle, toegankelijke interfaces met React, Next.js en TypeScript — en gebruik moderne AI-workflows om sneller te leveren zonder in te leveren op kwaliteit.",
+    "viewWork": "Bekijk geselecteerd werk",
+    "getInTouch": "Neem contact op",
+    "location": "Zeist, Nederland",
+    "basedIn": "Gevestigd in",
+    "portraitAlt": "Portret van Mohamad Shadi Omar",
+    "stats": {
+      "experience": "Jaar JavaScript",
+      "focus": "React & Next.js",
+      "languages": "Gesproken talen"
+    }
+  },
+  "Work": {
+    "eyebrow": "01 — Geselecteerd werk",
+    "title": "Wat ik heb gebouwd",
+    "description": "Een mix van productwerk, open-source experimenten en AI-ondersteunde tooling. Links verwijzen direct naar de code waar die openbaar is.",
+    "code": "Bekijk code",
+    "caseStudySoon": "Case study volgt",
+    "tech": "Tech"
+  },
+  "About": {
+    "eyebrow": "02 — Over mij",
+    "title": "Frontend-gericht, fullstack inzetbaar",
+    "body": "Bijna zeven jaar in het React-ecosysteem, met een sterke voorkeur voor performance, toegankelijkheid en onderhoudbare designsystemen. Ik heb gewerkt bij productbedrijven en agencies in Nederland, waarbij ik pixel-perfect UI-werk combineer met backendwerk wanneer dat nodig is.",
+    "languagesTitle": "Talen",
+    "languages": {
+      "english": "Engels — professioneel",
+      "dutch": "Nederlands — gemiddeld",
+      "arabic": "Arabisch — moedertaal"
+    },
+    "interestsTitle": "Naast werk",
+    "interests": [
+      "Voetbal & tactiek",
+      "Krachttraining",
+      "Techcommunities",
+      "Reizen"
+    ]
+  },
+  "Contact": {
+    "eyebrow": "03 — Contact",
+    "title": "Laten we iets bouwen dat blijft.",
+    "body": "Op zoek naar een developer, een samenwerking of gewoon nieuwsgierig? Mijn inbox staat open.",
+    "email": "Mail me",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "Footer": {
+    "rights": "© {year} Mohamad Shadi Omar",
+    "builtWith": "Gebouwd met Next.js, Tailwind CSS en shadcn/ui.",
+    "backToTop": "Terug naar boven"
+  },
+  "LocaleSwitcher": {
+    "label": "Taal wijzigen",
+    "en": "English",
+    "nl": "Nederlands",
+    "ar": "العربية"
+  },
+  "Theme": {
+    "toggle": "Thema wisselen",
+    "light": "Licht",
+    "dark": "Donker"
+  },
+  "NotFound": {
+    "title": "Pagina niet gevonden",
+    "body": "De pagina die je zoekt bestaat niet of is verplaatst.",
+    "home": "Terug naar home"
+  }
+}

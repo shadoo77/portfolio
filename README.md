@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Mohamad Shadi Omar
 
-## Getting Started
+Personal portfolio built with the modern React stack. Three locales (English,
+Dutch, Arabic) with full RTL support, dark-first design, and a focus on
+performance and accessibility.
 
-First, run the development server:
+## Stack
+
+| Layer      | Choice                                     |
+| ---------- | ------------------------------------------ |
+| Framework  | Next.js 16 (App Router, Cache Components)  |
+| Language   | TypeScript (strict)                        |
+| UI         | Tailwind CSS v4, shadcn/ui (Radix), Lucide |
+| i18n       | next-intl (`en`, `nl`, `ar`, RTL)          |
+| Data       | TanStack Query                             |
+| Validation | Zod v4                                     |
+| Utilities  | usehooks-ts, next-themes, Motion, nuqs     |
+| Tooling    | pnpm, ESLint, Prettier, GitHub Actions     |
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.example .env.local
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) — the proxy redirects to the
+negotiated locale (`/en`, `/nl` or `/ar`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command             | Description                            |
+| ------------------- | -------------------------------------- |
+| `pnpm dev`          | Start the development server           |
+| `pnpm build`        | Production build (includes TypeScript) |
+| `pnpm start`        | Serve the production build             |
+| `pnpm lint`         | ESLint                                 |
+| `pnpm typecheck`    | Generate route types and run `tsc`     |
+| `pnpm format`       | Format with Prettier                   |
+| `pnpm format:check` | Check formatting                       |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/[locale]/       localized routes
+  components/         layout, sections, shared components, shadcn ui
+  config/             site identity and featured projects
+  i18n/               routing, request config, navigation
+  lib/                environment validation
+messages/             en.json, nl.json, ar.json
+docs/roadmap.md       project status and decisions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable               | Required                    | Purpose                              |
+| ---------------------- | --------------------------- | ------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL` | Yes (defaults to localhost) | Canonical URLs, hreflang, Open Graph |
+| `RESEND_API_KEY`       | Optional                    | Contact form delivery (Phase 4)      |
+| `GITHUB_TOKEN`         | Optional                    | Live GitHub section (Phase 4)        |
 
-## Deploy on Vercel
+## Roadmap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Progress, decisions and the changelog live in [`docs/roadmap.md`](docs/roadmap.md).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+Company and client work is **not** shown visually. Only personal projects are
+featured, in line with NDA and IP obligations.

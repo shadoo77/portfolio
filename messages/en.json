@@ -1,0 +1,83 @@
+{
+  "Metadata": {
+    "title": "Mohamad Shadi Omar — Senior Frontend Developer",
+    "description": "Senior frontend and fullstack developer in the Netherlands. Seven years of JavaScript, a deep focus on React and Next.js, and a habit of shipping fast without cutting corners."
+  },
+  "Nav": {
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "skipToContent": "Skip to content"
+  },
+  "Hero": {
+    "availability": "Open to senior frontend roles",
+    "eyebrow": "Senior Frontend / Fullstack Developer",
+    "name": "Mohamad Shadi Omar",
+    "summary": "I build fast, accessible interfaces with React, Next.js and TypeScript — and I use modern AI-assisted workflows to ship them sooner without trading away quality.",
+    "viewWork": "View selected work",
+    "getInTouch": "Get in touch",
+    "location": "Zeist, Netherlands",
+    "basedIn": "Based in",
+    "portraitAlt": "Portrait of Mohamad Shadi Omar",
+    "stats": {
+      "experience": "Years of JavaScript",
+      "focus": "React & Next.js",
+      "languages": "Spoken languages"
+    }
+  },
+  "Work": {
+    "eyebrow": "01 — Selected work",
+    "title": "Things I've built",
+    "description": "A mix of product work, open-source experiments and AI-assisted tooling. Links go straight to the code where it is public.",
+    "code": "View code",
+    "caseStudySoon": "Case study coming soon",
+    "tech": "Tech"
+  },
+  "About": {
+    "eyebrow": "02 — About",
+    "title": "Frontend-focused, fullstack capable",
+    "body": "Nearly seven years in the React ecosystem, with a strong bias toward performance, accessibility and maintainable design systems. I've worked across product companies and agencies in the Netherlands, pairing pixel-perfect UI work with the backend when the problem calls for it.",
+    "languagesTitle": "Languages",
+    "languages": {
+      "english": "English — professional",
+      "dutch": "Dutch — intermediate",
+      "arabic": "Arabic — native"
+    },
+    "interestsTitle": "Outside work",
+    "interests": [
+      "Football & tactics",
+      "Weightlifting",
+      "Tech communities",
+      "Travel"
+    ]
+  },
+  "Contact": {
+    "eyebrow": "03 — Contact",
+    "title": "Let's build something that lasts.",
+    "body": "Hiring, collaborating or just curious? My inbox is open.",
+    "email": "Email me",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "Footer": {
+    "rights": "© {year} Mohamad Shadi Omar",
+    "builtWith": "Built with Next.js, Tailwind CSS and shadcn/ui.",
+    "backToTop": "Back to top"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "en": "English",
+    "nl": "Nederlands",
+    "ar": "العربية"
+  },
+  "Theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "body": "The page you're looking for doesn't exist or has moved.",
+    "home": "Back home"
+  }
+}
