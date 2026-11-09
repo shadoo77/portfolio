@@ -120,6 +120,7 @@ there are no separate task files.
 | 2026-11-09 | No company/client screenshots                                              | Legal and NDA safety; company work stays as a text-only timeline          |
 | 2026-11-09 | Free Vercel URL first                                                      | Unblocks launch; custom domain can be added without rework                |
 | 2026-11-09 | Featured projects: CV Maker 2026, Recipes App, Next.js Viator, DeepNotLoud | All own work, public or publishable                                       |
+| 2026-11-09 | Pin CI to `ubuntu-24.04` and current actions majors                        | Avoids Ubuntu 26 migration surprises and Node 20 runtime deprecation      |
 
 ## Changelog
 
@@ -129,3 +130,4 @@ there are no separate task files.
 - **2026-11-09** — Landing page: header, hero, selected work, about, contact, footer.
 - **2026-11-09** — Zod env validation, Prettier, GitHub Actions CI, `.env.example`.
 - **2026-11-09** — `docs/roadmap.md` and `AGENTS.md` created; initial push to `shadoo77/portfolio`.
+- **2026-11-09** — CI upgraded to `checkout@v7`, `setup-node@v7`, `pnpm/action-setup@v6`, Node 24 and `ubuntu-24.04`.

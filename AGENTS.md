@@ -17,7 +17,7 @@ developer based in Zeist, the Netherlands.
 
 - Repo: `shadoo77/portfolio` · default branch `master`
 - Package manager: **pnpm** (do not use npm/yarn)
-- Node: `>=20.9.0` (CI uses Node 22)
+- Node: `>=20.9.0` (CI uses Node 24 on `ubuntu-24.04`)
 - Stack: Next.js 16 App Router, React 19, TypeScript strict, Tailwind CSS v4,
   shadcn/ui (Radix, RTL mode), next-intl, TanStack Query, Zod, usehooks-ts,
   next-themes, Motion, nuqs
