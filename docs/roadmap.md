@@ -113,19 +113,20 @@ there are no separate task files.
 
 ## Decisions log
 
-| Date       | Decision                                                                   | Why                                                                            |
-| ---------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| 2026-11-09 | Next.js 16 App Router over Vite                                            | Strongest skill signal; SSG, metadata, server actions, easy Vercel deploy      |
-| 2026-11-09 | Three locales: EN, NL, AR with full RTL                                    | Dutch market + native Arabic; RTL is a differentiator                          |
-| 2026-11-09 | Dark-first minimal tech design                                             | Matches personal preference and developer audience                             |
-| 2026-11-09 | Ship MVP first, then v1.1                                                  | Keeps launch scope realistic; avoids writing 12 case studies up front          |
-| 2026-11-09 | No company/client screenshots                                              | Legal and NDA safety; company work stays as a text-only timeline               |
-| 2026-11-09 | Free Vercel URL first                                                      | Unblocks launch; custom domain can be added without rework                     |
-| 2026-11-09 | Featured projects: CV Maker 2026, Recipes App, Next.js Viator, DeepNotLoud | All own work, public or publishable                                            |
-| 2026-11-09 | Pin CI to `ubuntu-24.04` and current actions majors                        | Avoids Ubuntu 26 migration surprises and Node 20 runtime deprecation           |
-| 2026-11-09 | Site shows `7+` JavaScript, `7+` React and `5+` Next.js                    | Matches the CV skills; hero keeps three focused stats, languages move to About |
-| 2026-11-09 | Work grid is labelled as side projects with an explicit disclaimer         | The four featured repos are hobbies; professional work is company-owned        |
-| 2026-11-09 | Theme script hoisted into the layout `<head>` via `next/script`            | React 19 rejects executable scripts rendered inside client components          |
+| Date       | Decision                                                                   | Why                                                                                    |
+| ---------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| 2026-11-09 | Next.js 16 App Router over Vite                                            | Strongest skill signal; SSG, metadata, server actions, easy Vercel deploy              |
+| 2026-11-09 | Three locales: EN, NL, AR with full RTL                                    | Dutch market + native Arabic; RTL is a differentiator                                  |
+| 2026-11-09 | Dark-first minimal tech design                                             | Matches personal preference and developer audience                                     |
+| 2026-11-09 | Ship MVP first, then v1.1                                                  | Keeps launch scope realistic; avoids writing 12 case studies up front                  |
+| 2026-11-09 | No company/client screenshots                                              | Legal and NDA safety; company work stays as a text-only timeline                       |
+| 2026-11-09 | Free Vercel URL first                                                      | Unblocks launch; custom domain can be added without rework                             |
+| 2026-11-09 | Featured projects: CV Maker 2026, Recipes App, Next.js Viator, DeepNotLoud | All own work, public or publishable                                                    |
+| 2026-11-09 | Pin CI to `ubuntu-24.04` and current actions majors                        | Avoids Ubuntu 26 migration surprises and Node 20 runtime deprecation                   |
+| 2026-11-09 | Site shows `7+` JavaScript, `7+` React and `5+` Next.js                    | Matches the CV skills; hero keeps three focused stats, languages move to About         |
+| 2026-11-09 | Work grid is labelled as side projects with an explicit disclaimer         | The four featured repos are hobbies; professional work is company-owned                |
+| 2026-11-09 | Theme script hoisted into the layout `<head>` via `next/script`            | React 19 rejects executable scripts rendered inside client components                  |
+| 2026-11-09 | Sticky header shrinks via scroll listener + `data-scrolled` toggle         | Universal support and simple Tailwind classes; CSS scroll-timeline needs a JS fallback |
 
 ## Changelog
 
@@ -138,4 +139,5 @@ there are no separate task files.
 - **2026-11-09** — CI upgraded to `checkout@v7`, `setup-node@v7`, `pnpm/action-setup@v6`, Node 24 and `ubuntu-24.04`.
 - **2026-11-09** — Hero stats aligned to the CV (`7+` JavaScript, `7+` React, `5+` Next.js); location now includes Utrecht.
 - **2026-11-09** — Work section relabelled as side projects with a disclaimer; repo links for CV Maker 2026 and DeepNotLoud; live demo link for CV Maker.
+- **2026-11-09** — Header and logo enlarged; sticky header shrinks on scroll with a passive listener and reduced-motion support.
 - **2026-11-09** — Fixed React 19 "script tag" console error by hoisting the theme init script into the layout head.
