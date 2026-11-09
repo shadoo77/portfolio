@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Mohamad Shadi Omar — Senior Frontend Developer",
-    "description": "Senior frontend and fullstack developer in the Netherlands. Seven years of JavaScript, a deep focus on React and Next.js, and a habit of shipping fast without cutting corners."
+    "description": "Senior frontend and fullstack developer in the Netherlands. Seven-plus years of JavaScript, a deep focus on React and Next.js, and a habit of shipping fast without cutting corners."
   },
   "Nav": {
     "work": "Work",
@@ -16,27 +16,29 @@
     "summary": "I build fast, accessible interfaces with React, Next.js and TypeScript — and I use modern AI-assisted workflows to ship them sooner without trading away quality.",
     "viewWork": "View selected work",
     "getInTouch": "Get in touch",
-    "location": "Zeist, Netherlands",
+    "location": "Zeist, Utrecht, Netherlands",
     "basedIn": "Based in",
     "portraitAlt": "Portrait of Mohamad Shadi Omar",
     "stats": {
-      "experience": "Years of JavaScript",
-      "focus": "React & Next.js",
-      "languages": "Spoken languages"
+      "javascript": "Years of JavaScript",
+      "react": "Years of React",
+      "nextjs": "Years of Next.js"
     }
   },
   "Work": {
-    "eyebrow": "01 — Selected work",
+    "eyebrow": "01 — Side projects",
     "title": "Things I've built",
-    "description": "A mix of product work, open-source experiments and AI-assisted tooling. Links go straight to the code where it is public.",
+    "description": "A few personal projects I build in my own time — AI-assisted tooling, performance experiments and RTL work. Links go straight to the code.",
+    "note": "These four are a few of my hobby projects. The rest of my work was delivered at the companies and agencies I've worked for, so it isn't public.",
     "code": "View code",
+    "live": "Live demo",
     "caseStudySoon": "Case study coming soon",
     "tech": "Tech"
   },
   "About": {
     "eyebrow": "02 — About",
     "title": "Frontend-focused, fullstack capable",
-    "body": "Nearly seven years in the React ecosystem, with a strong bias toward performance, accessibility and maintainable design systems. I've worked across product companies and agencies in the Netherlands, pairing pixel-perfect UI work with the backend when the problem calls for it.",
+    "body": "7+ years in the React ecosystem, with a strong bias toward performance, accessibility and maintainable design systems. I've worked across product companies and agencies in the Netherlands, pairing pixel-perfect UI work with the backend when the problem calls for it.",
     "languagesTitle": "Languages",
     "languages": {
       "english": "English — professional",

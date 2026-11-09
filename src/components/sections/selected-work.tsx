@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { cn } from "cn";
 import { projects } from "@/config/projects";
@@ -71,7 +71,7 @@ export function SelectedWork() {
                   {project.tagline[locale]}
                 </p>
 
-                <div className="mt-5 pt-1">
+                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 pt-1">
                   {project.repo ? (
                     <a
                       href={project.repo}
@@ -82,16 +82,34 @@ export function SelectedWork() {
                       {t("code")}
                       <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </a>
-                  ) : (
+                  ) : null}
+
+                  {project.live ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary inline-flex items-center gap-1 text-sm font-medium hover:underline"
+                    >
+                      {t("live")}
+                      <ExternalLink className="size-3.5" />
+                    </a>
+                  ) : null}
+
+                  {!project.repo && !project.live ? (
                     <span className="text-muted-foreground font-mono text-[11px] tracking-wider uppercase">
                       {t("caseStudySoon")}
                     </span>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </article>
           ))}
         </div>
+
+        <p className="text-muted-foreground mt-8 max-w-2xl text-xs leading-relaxed sm:text-sm">
+          {t("note")}
+        </p>
       </div>
     </section>
   );

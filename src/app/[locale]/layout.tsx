@@ -34,6 +34,11 @@ const ogLocales = {
   ar: "ar_AR",
 } as const;
 
+// Runs before hydration so the stored theme is applied without a flash.
+// Kept in sync with the ThemeProvider config below: class attribute,
+// dark default, no system theme.
+const themeInitScript = `(function(){try{var stored=localStorage.getItem("theme");var theme=stored==="light"?"light":"dark";var root=document.documentElement;root.classList.remove("light","dark");root.classList.add(theme);root.style.colorScheme=theme;}catch(error){document.documentElement.classList.add("dark");}})();`;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -101,6 +106,11 @@ export default async function LocaleLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${plexArabic.variable} h-full`}
     >
+      <head>
+        {/* Theme bootstrap: runs before paint to avoid a light flash. */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+
       <body className="flex min-h-svh flex-col">
         <a
           href="#main"

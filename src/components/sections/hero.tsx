@@ -32,9 +32,9 @@ export function Hero() {
   const t = useTranslations("Hero");
 
   const stats = [
-    { value: "7+", label: t("stats.experience") },
-    { value: "6+", label: t("stats.focus") },
-    { value: "3", label: t("stats.languages") },
+    { value: "7+", label: t("stats.javascript") },
+    { value: "7+", label: t("stats.react") },
+    { value: "5+", label: t("stats.nextjs") },
   ];
 
   return (

@@ -5,7 +5,7 @@ export const siteConfig = {
   shortName: "shadi.",
   url: env.NEXT_PUBLIC_SITE_URL,
   email: "shadi.omar077@gmail.com",
-  location: "Zeist, Netherlands",
+  location: "Zeist, Utrecht, Netherlands",
   links: {
     github: "https://github.com/shadoo77",
     linkedin: "https://www.linkedin.com/in/shadi-amr/",

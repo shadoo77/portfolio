@@ -22,6 +22,8 @@ export const projects: Project[] = [
       nl: "Tweetalige cv-builder met drie live templates, accentkleuren en perfecte pdf-export.",
       ar: "منشئ سيرة ذاتية ثنائي اللغة بثلاثة قوالب مباشرة وتخصيص للألوان وتصدير PDF جاهز للطباعة.",
     },
+    repo: "https://github.com/shadoo77/cv-maker-2026",
+    live: "https://shadoo77.github.io/cv-maker-2026/",
     accent: "lime",
   },
   {
@@ -60,6 +62,7 @@ export const projects: Project[] = [
       nl: "Door Remotion aangedreven documentairegenerator met AI-scripts en geautomatiseerde rendering.",
       ar: "مولّد أفلام وثائقية يعمل بـ Remotion، مدعوم بنصوص الذكاء الاصطناعي والعرض الآلي.",
     },
+    repo: "https://github.com/shadoo77/DeepNotLoud",
     accent: "violet",
   },
 ];

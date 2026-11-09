@@ -80,6 +80,11 @@ docs/roadmap.md          # the only status tracker
 - Keep the three locale files structurally identical.
 - Content is typed via Velite + Zod once Phase 3 lands; do not hardcode project
   data inside components — use `src/config/projects.ts` for now.
+- The Work grid shows **only personal side projects** and must keep the note that
+  company/client work was delivered through employers — never imply it is public.
+- Theme script lives in the layout head (`next/script` + `beforeInteractive`);
+  `next-themes`' own script is marked `application/json` to avoid the React 19
+  client-script warning. Keep both in sync with the `ThemeProvider` config.
 - Images use `next/image` with explicit dimensions or `sizes`.
 - Preserve accessibility: semantic landmarks, visible focus, AA contrast,
   labels on icon-only buttons.
