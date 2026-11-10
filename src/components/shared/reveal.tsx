@@ -1,14 +1,18 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { cn } from "cn";
 
 /**
- * Fades and lifts its children into view once. Content stays visible when
- * JavaScript never runs (`<noscript>` rule in the layout) and when the visitor
- * prefers reduced motion, so this is decoration only — it never gates content.
+ * Fades and lifts its children into view once, using an IntersectionObserver
+ * plus a CSS transition instead of a motion library — the effect is identical
+ * and it keeps ~30 KB of JavaScript off the critical path.
+ *
+ * The hidden state lives in CSS, so the `<noscript>` rule in the layout and the
+ * reduced-motion block in `globals.css` remain load-bearing: decoration must
+ * never gate content. The reveal flips a DOM attribute rather than React state
+ * so a page full of sections never re-renders for an animation.
  */
 export function Reveal({
   children,
@@ -19,22 +23,39 @@ export function Reveal({
   delay?: number;
   className?: string;
 }) {
-  const prefersReducedMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
 
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      node.dataset.visible = "";
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          node.dataset.visible = "";
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -80px 0px" },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <motion.div
-      className={className}
+    <div
+      ref={ref}
       data-reveal
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -80px 0px" }}
-      transition={{ duration: 0.5, delay, ease: EASE }}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
+      className={cn("reveal", className)}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
