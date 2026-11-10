@@ -86,7 +86,8 @@ there are no separate task files.
 - ✅ Dynamic Open Graph image (`ImageResponse`), wired into every route's metadata
 - ✅ JSON-LD `Person` schema with `knowsLanguage`
 - ✅ Playwright smoke suite (18 tests: home, work filters, case study, contact form, AR/RTL, mobile nav)
-- ⬜ Lighthouse CI budgets (≥ 95 across categories)
+- 🚧 Lighthouse measured on production: EN 95/100/100/100, AR 99/100/100/100
+  (performance/accessibility/best-practices/SEO); budgets not enforced in CI yet
 - ⬜ Scroll-reveal motion (Motion) with reduced-motion support
 - ⬜ Accessibility audit (keyboard, focus, contrast)
 
@@ -165,6 +166,7 @@ there are no separate task files.
 - **2026-11-10** — Dutch level shown as `intermediate (B1–B2)` in all three locales; CV copy aligned.
 - **2026-11-10** — Wordmark simplified to `Shadi` from `siteConfig.shortName`; the trailing accent dot and the stale `shadi.dev` aria-label are gone.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
+- **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
 - **2026-11-10** — Playwright smoke suite (18 tests) wired into CI; Vercel's production domain now outranks a stale `SITE_URL`.
 - **2026-11-10** — Sitemap with hreflang alternates, robots, a generated Open Graph image and a `Person` JSON-LD block.
 - **2026-11-10** — Arabic font no longer preloaded on EN/NL (4 unused weights, ~134 KB); AR keeps loading it on demand.
