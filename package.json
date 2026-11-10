@@ -12,7 +12,13 @@
     "format:check": "prettier --check ."
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": "24.x"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core"
+    ]
   },
   "dependencies": {
     "@tanstack/react-query": "^5.107.1",

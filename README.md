@@ -55,11 +55,11 @@ docs/roadmap.md       project status and decisions
 
 ## Environment
 
-| Variable               | Required                    | Purpose                              |
-| ---------------------- | --------------------------- | ------------------------------------ |
-| `NEXT_PUBLIC_SITE_URL` | Yes (defaults to localhost) | Canonical URLs, hreflang, Open Graph |
-| `RESEND_API_KEY`       | Optional                    | Contact form delivery (Phase 4)      |
-| `GITHUB_TOKEN`         | Optional                    | Live GitHub section (Phase 4)        |
+| Variable         | Required                               | Purpose                              |
+| ---------------- | -------------------------------------- | ------------------------------------ |
+| `SITE_URL`       | No (falls back to Vercel or localhost) | Canonical URLs, hreflang, Open Graph |
+| `RESEND_API_KEY` | Optional                               | Contact form delivery (Phase 4)      |
+| `GITHUB_TOKEN`   | Optional                               | Live GitHub section (Phase 4)        |
 
 ## Roadmap
 

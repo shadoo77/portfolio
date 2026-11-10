@@ -8,16 +8,16 @@ there are no separate task files.
 
 ## At a glance
 
-| Area                 | Status | Notes                                                         |
-| -------------------- | ------ | ------------------------------------------------------------- |
-| Foundation           | ✅     | Next.js 16.4, React 19.3, TypeScript, Tailwind v4, pnpm       |
-| Design system        | ✅     | Dark-first tokens, Geist + IBM Plex Sans Arabic, shadcn/ui    |
-| Internationalisation | ✅     | `en` / `nl` / `ar`, RTL, locale-aware metadata and hreflang   |
-| Landing page         | 🚧     | Hero, side projects, experience, about and contact sections   |
-| Case studies         | ⬜     | Content model and detail routes not started                   |
-| Dynamic features     | ⬜     | Contact action, GitHub section, CV download                   |
-| Quality & SEO        | 🚧     | Lint, typecheck, build and CI green; tests/OG/sitemap pending |
-| Deployment           | ⬜     | Not deployed yet — Vercel free URL planned                    |
+| Area                 | Status | Notes                                                               |
+| -------------------- | ------ | ------------------------------------------------------------------- |
+| Foundation           | ✅     | Next.js 16.4, React 19.3, TypeScript, Tailwind v4, pnpm             |
+| Design system        | ✅     | Dark-first tokens, Geist + IBM Plex Sans Arabic, shadcn/ui          |
+| Internationalisation | ✅     | `en` / `nl` / `ar`, RTL, locale-aware metadata and hreflang         |
+| Landing page         | 🚧     | Hero, side projects, experience, about and contact sections         |
+| Case studies         | ⬜     | Content model and detail routes not started                         |
+| Dynamic features     | ⬜     | Contact action, GitHub section, CV download                         |
+| Quality & SEO        | 🚧     | Lint, typecheck, build and CI green; tests/OG/sitemap pending       |
+| Deployment           | 🚧     | Vercel production live; custom domain and branch protection pending |
 
 ## Phase 0 — Foundation ✅
 
@@ -90,7 +90,7 @@ there are no separate task files.
 
 ## Phase 6 — Launch ⬜
 
-- ⬜ Deploy to Vercel (free `*.vercel.app` URL first)
+- ✅ Deploy to Vercel (free `*.vercel.app` URL: `portfolio-orpin-eight-97`)
 - ⬜ Vercel Analytics + Speed Insights
 - ⬜ Branch protection on `master`
 - ⬜ Custom domain decision and connection
@@ -111,6 +111,7 @@ there are no separate task files.
 - ⬜ Screenshots for the four featured projects (can be captured locally)
 - ✅ DeepNotLoud: public repo at `shadoo77/DeepNotLoud`
 - ✅ CV Maker 2026: public repo and live GitHub Pages demo
+- ✅ `SITE_URL` set on Vercel for Production and Preview
 - ⬜ `RESEND_API_KEY` for the contact form (mailto fallback until then)
 - ⬜ `GITHUB_TOKEN` for the live GitHub section
 - ⬜ Domain name (optional, can launch on the Vercel URL)
@@ -135,7 +136,9 @@ there are no separate task files.
 | 2026-11-09 | Scroll-reveal motion moved to Phase 5                                      | Decoration only; it should not gate content work                                        |
 | 2026-11-09 | Work filters use `nuqs` query state                                        | Shareable, back-button-friendly URLs; no client data fetching                           |
 | 2026-11-09 | Project pages statically generated per slug and locale                     | Four projects × three locales prerender cleanly; `instant = false` allows params access |
-| 2026-11-09 | Case-study content lives in `projects.ts` for now                          | Ships real pages before Velite lands; migrate the same shape in Phase 3                 |
+| 2026-11-10 | Case-study content lives in `projects.ts` for now                          | Ships real pages before Velite lands; migrate the same shape in Phase 3                 |
+| 2026-11-10 | `SITE_URL` has no `NEXT_PUBLIC_` prefix                                    | Only read server-side; keeps the value out of the browser bundle                        |
+| 2026-11-10 | Node pinned to `24.x` and build scripts allow-listed                       | Vercel warns about floating majors and silently skips native postinstall scripts        |
 
 ## Changelog
 
@@ -154,4 +157,5 @@ there are no separate task files.
 - **2026-11-09** — `/work` overview with `nuqs` tag filters and static `/work/[slug]` project pages in all three locales.
 - **2026-11-10** — Dutch level shown as `intermediate (B1–B2)` in all three locales; CV copy aligned.
 - **2026-11-10** — Wordmark simplified to `Shadi` from `siteConfig.shortName`; the trailing accent dot and the stale `shadi.dev` aria-label are gone.
+- **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-09** — Fixed React 19 "script tag" console error by hoisting the theme init script into the layout head.
