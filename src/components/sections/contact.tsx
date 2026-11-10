@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { siteConfig } from "@/config/site";
 import { GithubIcon, LinkedinIcon } from "@/components/shared/icons";
 import { ContactForm } from "@/components/sections/contact-form";
+import { Reveal } from "@/components/shared/reveal";
 
 export function Contact() {
   const t = useTranslations("Contact");
@@ -10,7 +11,7 @@ export function Contact() {
   return (
     <section id="contact" className="border-border/60 border-t">
       <div className="mx-auto w-full max-w-6xl px-6 py-20 lg:py-28">
-        <div className="border-border bg-card relative overflow-hidden rounded-3xl border px-6 py-12 sm:px-10 lg:px-12 lg:py-14">
+        <Reveal className="border-border bg-card relative overflow-hidden rounded-3xl border px-6 py-12 sm:px-10 lg:px-12 lg:py-14">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.86_0.2_128/0.12),transparent_65%)]"
@@ -61,7 +62,7 @@ export function Contact() {
               <ContactForm />
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -150,3 +150,12 @@
     scroll-behavior: auto;
   }
 }
+
+/* Scroll-reveal decoration must never hide content for motion-sensitive or
+   script-less visitors. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

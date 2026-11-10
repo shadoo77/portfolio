@@ -94,6 +94,12 @@ docs/roadmap.md          # the only status tracker
   and logs a console error. `next-themes` swaps the class after hydration; its
   own script is marked `application/json` for the same reason. Keep the
   `ThemeProvider` config in sync with that default.
+- Section reveal is a single `Reveal` wrapper (`src/components/shared/reveal.tsx`).
+  Motion writes `opacity:0` into the HTML, so the `<noscript>` rule in the
+  layout and the reduced-motion block in `globals.css` are load-bearing — never
+  remove them. Decoration must never gate content.
+- Analytics and Speed Insights render only when `process.env.VERCEL` is set;
+  their scripts 404 anywhere else.
 - Images use `next/image` with explicit dimensions or `sizes`.
 - Preserve accessibility: semantic landmarks, visible focus, AA contrast,
   labels on icon-only buttons.

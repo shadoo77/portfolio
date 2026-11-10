@@ -89,14 +89,14 @@ there are no separate task files.
 - ✅ JSON-LD `Person` schema with `knowsLanguage`
 - ✅ Playwright smoke suite (18 tests: home, work filters, case study, contact form, AR/RTL, mobile nav)
 - 🚧 Lighthouse measured on production: EN 95/100/100/100, AR 99/100/100/100
-  (performance/accessibility/best-practices/SEO); budgets not enforced in CI yet
-- ⬜ Scroll-reveal motion (Motion) with reduced-motion support
-- ⬜ Accessibility audit (keyboard, focus, contrast)
+  before motion; re-measure after the motion release. Budgets not enforced in CI
+- ✅ Scroll-reveal motion (Motion) with reduced-motion and no-JS fallbacks
+- ✅ Accessibility audit: axe-core runs on six routes plus the form error state in CI
 
 ## Phase 6 — Launch ⬜
 
 - ✅ Deploy to Vercel (free `*.vercel.app` URL: `shadi-omar-portfolio.vercel.app`)
-- ⬜ Vercel Analytics + Speed Insights
+- ✅ Vercel Analytics + Speed Insights (scripts only load on Vercel)
 - ✅ Branch protection on `master`
 - ⬜ Custom domain decision and connection
 - ⬜ Final content and copy review in all three languages
@@ -155,6 +155,10 @@ there are no separate task files.
 | 2026-11-10 | Dark is server-rendered; no inline theme script                            | React 19 never executes a script re-rendered on locale change; light users get one frame |
 | 2026-11-10 | `ui/button` drops the icon-start padding override                          | The optical inset left 10px of asymmetry on small buttons, which reads as misalignment   |
 | 2026-11-10 | No CV download; the site carries the full stack instead                    | The portfolio is the destination — a PDF leaves and is forgotten                         |
+| 2026-11-10 | Scroll reveal uses one `Reveal` wrapper, not per-element animation         | Keeps the motion budget small and every section consistent                               |
+| 2026-11-10 | Reveal keeps content visible without JS and under reduced motion           | Motion renders `opacity:0` in the HTML, so both fallbacks are load-bearing               |
+| 2026-11-10 | axe-core runs in the Playwright suite                                      | Turns the accessibility claim into something CI enforces, across EN/NL/AR                |
+| 2026-11-10 | Analytics and Speed Insights render only when `VERCEL` is set              | Their scripts 404 anywhere else, which failed best-practices locally                     |
 
 ## Changelog
 
@@ -176,6 +180,7 @@ there are no separate task files.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
+- **2026-11-10** — Scroll-reveal motion with reduced-motion and no-JS fallbacks, Vercel Analytics + Speed Insights, and axe-core accessibility checks in CI.
 - **2026-11-10** — Skills block in About mirrors the CV's categories, so the stack is on-page without a downloadable document.
 - **2026-11-10** — Buttons with a leading icon keep symmetric padding; shadcn's tighter start padding read as misalignment at these sizes.
 - **2026-11-10** — Case studies for all five projects, `featured` flag on the landing page, and Recipes App reframed honestly.

@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { projects } from "@/config/projects";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ProjectCard } from "@/components/shared/project-card";
+import { Reveal } from "@/components/shared/reveal";
 
 export function SelectedWork() {
   const t = useTranslations("Work");
@@ -11,17 +12,21 @@ export function SelectedWork() {
   return (
     <section id="work" className="border-border/60 border-t">
       <div className="mx-auto w-full max-w-6xl px-6 py-20 lg:py-28">
-        <SectionHeading
-          eyebrow={t("eyebrow")}
-          title={t("title")}
-          description={t("description")}
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+            description={t("description")}
+          />
+        </Reveal>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
           {projects
             .filter((project) => project.featured)
             .map((project, index) => (
-              <ProjectCard key={project.slug} project={project} index={index} />
+              <Reveal key={project.slug} delay={index * 0.06}>
+                <ProjectCard project={project} index={index} />
+              </Reveal>
             ))}
         </div>
 

@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { skillGroups, type SkillGroupKey } from "@/config/skills";
+import { Reveal } from "@/components/shared/reveal";
 
 const languages = ["english", "dutch", "arabic"] as const;
 
@@ -21,7 +22,7 @@ export function About() {
   return (
     <section id="about" className="border-border/60 border-t">
       <div className="mx-auto w-full max-w-6xl px-6 py-20 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <Reveal className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading eyebrow={t("eyebrow")} title={t("title")} />
 
           <div>
@@ -55,9 +56,9 @@ export function About() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="border-border/60 mt-14 border-t pt-10">
+        <Reveal className="border-border/60 mt-14 border-t pt-10" delay={0.05}>
           <h3 className="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
             {t("skillsTitle")}
           </h3>
@@ -77,7 +78,7 @@ export function About() {
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
