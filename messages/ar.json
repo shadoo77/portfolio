@@ -86,6 +86,33 @@
     "github": "GitHub",
     "linkedin": "LinkedIn"
   },
+  "ContactForm": {
+    "name": "الاسم",
+    "namePlaceholder": "اسمك",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "you@example.com",
+    "message": "الرسالة",
+    "messagePlaceholder": "على ماذا تعمل؟ وظيفة أو مشروع أو سؤال — أي شيء.",
+    "privacyNote": "تُستخدم للرد عليك فقط.",
+    "submit": "أرسل الرسالة",
+    "sending": "جارٍ الإرسال…",
+    "successTitle": "تم إرسال الرسالة",
+    "successBody": "شكرًا لتواصلك — عادةً أرد خلال يوم أو يومين.",
+    "sendAnother": "إرسال رسالة أخرى",
+    "fallbackTitle": "أكمل الإرسال من تطبيق بريدك",
+    "fallbackBody": "رسالتك جاهزة للإرسال. إن لم يُفتح تطبيق بريدك، استخدم الزر أدناه.",
+    "fallbackAction": "افتح تطبيق البريد",
+    "errorTitle": "لم تُرسل الرسالة",
+    "tryAgain": "حاول مرة أخرى",
+    "genericError": "لم يتم الإرسال. راسلني على بريدي مباشرة.",
+    "errors": {
+      "nameMin": "يرجى إدخال اسمك.",
+      "nameMax": "الاسم طويل جدًا.",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح.",
+      "messageMin": "اكتب ١٠ أحرف على الأقل.",
+      "messageMax": "الرسالة طويلة جدًا."
+    }
+  },
   "Footer": {
     "rights": "© {year} محمد شادي عمر",
     "builtWith": "مبني باستخدام Next.js وTailwind CSS وshadcn/ui.",

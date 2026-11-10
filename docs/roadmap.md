@@ -15,7 +15,7 @@ there are no separate task files.
 | Internationalisation | ✅     | `en` / `nl` / `ar`, RTL, locale-aware metadata and hreflang         |
 | Landing page         | 🚧     | Hero, side projects, experience, about and contact sections         |
 | Case studies         | ⬜     | Content model and detail routes not started                         |
-| Dynamic features     | ⬜     | Contact action, GitHub section, CV download                         |
+| Dynamic features     | 🚧     | Contact form live; GitHub section and CV download pending           |
 | Quality & SEO        | 🚧     | Lint, typecheck, build and CI green; tests/OG/sitemap pending       |
 | Deployment           | 🚧     | Vercel production live; custom domain and branch protection pending |
 
@@ -53,7 +53,7 @@ there are no separate task files.
 - ✅ Experience timeline (This is Development, Gofilex, 4net, We Are Eves)
 - ✅ About section: bio, languages, interests
 - ✅ Contact CTA section
-- ⬜ Contact form (Zod + react-hook-form + server action + Resend)
+- ✅ Contact form (Zod schema, server action, Resend, mailto handoff fallback)
 - ✅ `/work` overview route with tag filtering (`nuqs`)
 - ✅ `/work/[slug]` project pages (static, EN/NL/AR)
 
@@ -70,9 +70,10 @@ there are no separate task files.
 ## Phase 4 — Dynamic features ⬜
 
 - ⬜ GitHub section (repos, stars, language mix) via cached route + TanStack Query
-- ⬜ Contact form delivery with Resend + React Email, honeypot and rate limit
+- 🚧 Contact form delivery: Resend, honeypot and per-instance rate limit wired;
+  React Email templates and a shared rate-limit store pending
 - ⬜ CV PDF export reusing the best `cv-maker-2026` template
-- ⬜ `sonner` toasts and form error states
+- ✅ `sonner` toasts and accessible form error states
 - ⬜ `cmdk` command palette (v1.1 candidate)
 - ⬜ Full RTL QA pass across form controls, dropdowns and sheets
 
@@ -139,6 +140,8 @@ there are no separate task files.
 | 2026-11-10 | Case-study content lives in `projects.ts` for now                          | Ships real pages before Velite lands; migrate the same shape in Phase 3                 |
 | 2026-11-10 | `SITE_URL` has no `NEXT_PUBLIC_` prefix                                    | Only read server-side; keeps the value out of the browser bundle                        |
 | 2026-11-10 | Node pinned to `24.x` and build scripts allow-listed                       | Vercel warns about floating majors and silently skips native postinstall scripts        |
+| 2026-11-10 | Contact form uses React 19 `useActionState`, not `react-hook-form`         | One shared Zod schema covers client and server; avoids two extra dependencies           |
+| 2026-11-10 | Missing `RESEND_API_KEY` hands the message to the visitor's mail client    | The form works before any mail account exists; a real mailto link backs the handoff     |
 
 ## Changelog
 
@@ -158,4 +161,5 @@ there are no separate task files.
 - **2026-11-10** — Dutch level shown as `intermediate (B1–B2)` in all three locales; CV copy aligned.
 - **2026-11-10** — Wordmark simplified to `Shadi` from `siteConfig.shortName`; the trailing accent dot and the stale `shadi.dev` aria-label are gone.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
+- **2026-11-10** — Contact form shipped: shared Zod schema, server action with honeypot and rate limit, Resend delivery, mailto handoff when no key is configured, localized errors and `sonner` toasts.
 - **2026-11-09** — Fixed React 19 "script tag" console error by hoisting the theme init script into the layout head.

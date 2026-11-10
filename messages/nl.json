@@ -86,6 +86,33 @@
     "github": "GitHub",
     "linkedin": "LinkedIn"
   },
+  "ContactForm": {
+    "name": "Naam",
+    "namePlaceholder": "Je naam",
+    "email": "E-mail",
+    "emailPlaceholder": "jij@voorbeeld.nl",
+    "message": "Bericht",
+    "messagePlaceholder": "Waar werk je aan? Een rol, een project, een vraag — alles is welkom.",
+    "privacyNote": "Alleen gebruikt om je te antwoorden.",
+    "submit": "Bericht versturen",
+    "sending": "Versturen…",
+    "successTitle": "Bericht verstuurd",
+    "successBody": "Bedankt voor je bericht — meestal antwoord ik binnen een dag of twee.",
+    "sendAnother": "Nog een bericht sturen",
+    "fallbackTitle": "Rond af in je e-mailapp",
+    "fallbackBody": "Je bericht staat klaar om te versturen. Opent je e-mailapp niet? Gebruik dan de knop hieronder.",
+    "fallbackAction": "Open e-mailapp",
+    "errorTitle": "Bericht niet verstuurd",
+    "tryAgain": "Opnieuw proberen",
+    "genericError": "Versturen lukte niet. Mail me gerust direct.",
+    "errors": {
+      "nameMin": "Vul je naam in.",
+      "nameMax": "Die naam is te lang.",
+      "emailInvalid": "Vul een geldig e-mailadres in.",
+      "messageMin": "Schrijf minimaal 10 tekens.",
+      "messageMax": "Dat bericht is te lang."
+    }
+  },
   "Footer": {
     "rights": "© {year} Mohamad Shadi Omar",
     "builtWith": "Gebouwd met Next.js, Tailwind CSS en shadcn/ui.",
