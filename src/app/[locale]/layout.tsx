@@ -7,6 +7,7 @@ import { Direction } from "radix-ui";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
+import { cn } from "cn";
 import { ogLocales } from "@/lib/metadata";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
@@ -29,6 +30,9 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   variable: "--font-plex-arabic",
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
+  // Only Arabic pages render this family. Preloading it would make every EN/NL
+  // page fetch ~130 KB it never uses, so it loads on demand instead.
+  preload: false,
 });
 
 // Runs before hydration so the stored theme is applied without a flash.
@@ -92,7 +96,13 @@ export default async function LocaleLayout({
       dir={dir}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} ${plexArabic.variable} h-full`}
+      className={cn(
+        geistSans.variable,
+        geistMono.variable,
+        // Only Arabic renders with Plex, so only Arabic should preload it.
+        locale === "ar" && plexArabic.variable,
+        "h-full",
+      )}
     >
       <head>
         {/* Theme bootstrap: runs before paint to avoid a light flash. */}
