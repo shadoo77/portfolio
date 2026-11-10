@@ -169,6 +169,7 @@ there are no separate task files.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
+- **2026-11-10** — Buttons with a leading icon keep symmetric padding; shadcn's tighter start padding read as misalignment at these sizes.
 - **2026-11-10** — Case studies for all five projects, `featured` flag on the landing page, and Recipes App reframed honestly.
 - **2026-11-10** — Case-study schema (problem, constraints, approach, decisions, outcome, lessons) plus a full Portfolio 2026 write-up in EN/NL/AR; 20 e2e tests.
 - **2026-11-10** — Playwright smoke suite (18 tests) wired into CI; Vercel's production domain now outranks a stale `SITE_URL`.
