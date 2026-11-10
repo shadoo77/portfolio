@@ -180,6 +180,7 @@ there are no separate task files.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
+- **2026-11-10** — Reveal reimplemented with IntersectionObserver + CSS (−36 KB JS) after motion cost ~5 Lighthouse points.
 - **2026-11-10** — Scroll-reveal motion with reduced-motion and no-JS fallbacks, Vercel Analytics + Speed Insights, and axe-core accessibility checks in CI.
 - **2026-11-10** — Skills block in About mirrors the CV's categories, so the stack is on-page without a downloadable document.
 - **2026-11-10** — Buttons with a leading icon keep symmetric padding; shadcn's tighter start padding read as misalignment at these sizes.
