@@ -75,6 +75,15 @@
     "eyebrow": "03 — Over mij",
     "title": "Frontend-gericht, fullstack inzetbaar",
     "body": "7+ jaar in het React-ecosysteem, met een sterke voorkeur voor performance, toegankelijkheid en onderhoudbare designsystemen. Ik heb gewerkt bij productbedrijven en agencies in Nederland, waarbij ik pixel-perfect UI-werk combineer met backendwerk wanneer dat nodig is.",
+    "skillsTitle": "Vaardigheden",
+    "skillGroups": {
+      "languages": "Talen",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "data": "Data",
+      "tooling": "Tooling",
+      "ai": "AI-workflows"
+    },
     "languagesTitle": "Talen",
     "languages": {
       "english": "Engels — professioneel",
