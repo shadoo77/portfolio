@@ -51,7 +51,7 @@ there are no separate task files.
 - ✅ Selected work grid with the four featured projects, public repo links and a
   side-project disclaimer
 - ✅ Experience timeline (This is Development, Gofilex, 4net, We Are Eves)
-- ✅ About section: bio, languages, interests
+- ✅ About section: bio, grouped skills from the CV, languages, interests
 - ✅ Contact CTA section
 - ✅ Contact form (Zod schema, server action, Resend, mailto handoff fallback)
 - ✅ `/work` overview route with tag filtering (`nuqs`)
@@ -123,31 +123,38 @@ there are no separate task files.
 
 ## Decisions log
 
-| Date       | Decision                                                                   | Why                                                                                     |
-| ---------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| 2026-11-09 | Next.js 16 App Router over Vite                                            | Strongest skill signal; SSG, metadata, server actions, easy Vercel deploy               |
-| 2026-11-09 | Three locales: EN, NL, AR with full RTL                                    | Dutch market + native Arabic; RTL is a differentiator                                   |
-| 2026-11-09 | Dark-first minimal tech design                                             | Matches personal preference and developer audience                                      |
-| 2026-11-09 | Ship MVP first, then v1.1                                                  | Keeps launch scope realistic; avoids writing 12 case studies up front                   |
-| 2026-11-09 | No company/client screenshots                                              | Legal and NDA safety; company work stays as a text-only timeline                        |
-| 2026-11-09 | Free Vercel URL first                                                      | Unblocks launch; custom domain can be added without rework                              |
-| 2026-11-09 | Featured projects: CV Maker 2026, Recipes App, Next.js Viator, DeepNotLoud | All own work, public or publishable                                                     |
-| 2026-11-09 | Pin CI to `ubuntu-24.04` and current actions majors                        | Avoids Ubuntu 26 migration surprises and Node 20 runtime deprecation                    |
-| 2026-11-09 | Site shows `7+` JavaScript, `7+` React and `5+` Next.js                    | Matches the CV skills; hero keeps three focused stats, languages move to About          |
-| 2026-11-09 | Work grid is labelled as side projects with an explicit disclaimer         | The four featured repos are hobbies; professional work is company-owned                 |
-| 2026-11-09 | Theme script hoisted into the layout `<head>` via `next/script`            | React 19 rejects executable scripts rendered inside client components                   |
-| 2026-11-09 | Sticky header shrinks via scroll listener + `data-scrolled` toggle         | Universal support and simple Tailwind classes; CSS scroll-timeline needs a JS fallback  |
-| 2026-11-09 | Experience as a landing section, not a `/about` route                      | One scroll-telling story; four roles are too thin for a dedicated page                  |
-| 2026-11-09 | Scroll-reveal motion moved to Phase 5                                      | Decoration only; it should not gate content work                                        |
-| 2026-11-09 | Work filters use `nuqs` query state                                        | Shareable, back-button-friendly URLs; no client data fetching                           |
-| 2026-11-09 | Project pages statically generated per slug and locale                     | Four projects × three locales prerender cleanly; `instant = false` allows params access |
-| 2026-11-10 | `SITE_URL` has no `NEXT_PUBLIC_` prefix                                    | Only read server-side; keeps the value out of the browser bundle                        |
-| 2026-11-10 | Node pinned to `24.x` and build scripts allow-listed                       | Vercel warns about floating majors and silently skips native postinstall scripts        |
-| 2026-11-10 | Contact form uses React 19 `useActionState`, not `react-hook-form`         | One shared Zod schema covers client and server; avoids two extra dependencies           |
-| 2026-11-10 | Missing `RESEND_API_KEY` hands the message to the visitor's mail client    | The form works before any mail account exists; a real mailto link backs the handoff     |
-| 2026-11-10 | IBM Plex Sans Arabic sets `preload: false`                                 | Four Arabic weights were preloaded on EN/NL where nothing renders them (~134 KB)        |
-| 2026-11-10 | The Vercel production domain outranks `SITE_URL`                           | Renaming the project can no longer leave canonicals pointing at a dead host             |
-| 2026-11-10 | Unknown slugs may answer `200` with `noindex` on the first hit             | PPR streams the shell before the page resolves; `notFound()` keeps the UI and noindex   |
+| Date       | Decision                                                                   | Why                                                                                      |
+| ---------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| 2026-11-09 | Next.js 16 App Router over Vite                                            | Strongest skill signal; SSG, metadata, server actions, easy Vercel deploy                |
+| 2026-11-09 | Three locales: EN, NL, AR with full RTL                                    | Dutch market + native Arabic; RTL is a differentiator                                    |
+| 2026-11-09 | Dark-first minimal tech design                                             | Matches personal preference and developer audience                                       |
+| 2026-11-09 | Ship MVP first, then v1.1                                                  | Keeps launch scope realistic; avoids writing 12 case studies up front                    |
+| 2026-11-09 | No company/client screenshots                                              | Legal and NDA safety; company work stays as a text-only timeline                         |
+| 2026-11-09 | Free Vercel URL first                                                      | Unblocks launch; custom domain can be added without rework                               |
+| 2026-11-09 | Featured projects: CV Maker 2026, Recipes App, Next.js Viator, DeepNotLoud | All own work, public or publishable                                                      |
+| 2026-11-09 | Pin CI to `ubuntu-24.04` and current actions majors                        | Avoids Ubuntu 26 migration surprises and Node 20 runtime deprecation                     |
+| 2026-11-09 | Site shows `7+` JavaScript, `7+` React and `5+` Next.js                    | Matches the CV skills; hero keeps three focused stats, languages move to About           |
+| 2026-11-09 | Work grid is labelled as side projects with an explicit disclaimer         | The four featured repos are hobbies; professional work is company-owned                  |
+| 2026-11-09 | Theme script hoisted into the layout `<head>` (superseded 11-10)           | React 19 rejects executable scripts rendered inside client components                    |
+| 2026-11-09 | Sticky header shrinks via scroll listener + `data-scrolled` toggle         | Universal support and simple Tailwind classes; CSS scroll-timeline needs a JS fallback   |
+| 2026-11-09 | Experience as a landing section, not a `/about` route                      | One scroll-telling story; four roles are too thin for a dedicated page                   |
+| 2026-11-09 | Scroll-reveal motion moved to Phase 5                                      | Decoration only; it should not gate content work                                         |
+| 2026-11-09 | Work filters use `nuqs` query state                                        | Shareable, back-button-friendly URLs; no client data fetching                            |
+| 2026-11-09 | Project pages statically generated per slug and locale                     | Four projects × three locales prerender cleanly; `instant = false` allows params access  |
+| 2026-11-10 | `SITE_URL` has no `NEXT_PUBLIC_` prefix                                    | Only read server-side; keeps the value out of the browser bundle                         |
+| 2026-11-10 | Node pinned to `24.x` and build scripts allow-listed                       | Vercel warns about floating majors and silently skips native postinstall scripts         |
+| 2026-11-10 | Contact form uses React 19 `useActionState`, not `react-hook-form`         | One shared Zod schema covers client and server; avoids two extra dependencies            |
+| 2026-11-10 | Missing `RESEND_API_KEY` hands the message to the visitor's mail client    | The form works before any mail account exists; a real mailto link backs the handoff      |
+| 2026-11-10 | IBM Plex Sans Arabic sets `preload: false`                                 | Four Arabic weights were preloaded on EN/NL where nothing renders them (~134 KB)         |
+| 2026-11-10 | The Vercel production domain outranks `SITE_URL`                           | Renaming the project can no longer leave canonicals pointing at a dead host              |
+| 2026-11-10 | Unknown slugs may answer `200` with `noindex` on the first hit             | PPR streams the shell before the page resolves; `notFound()` keeps the UI and noindex    |
+| 2026-11-10 | Case studies keep the problem/decisions/outcome structure                  | Shows judgement rather than a feature list; the decisions block is the differentiator    |
+| 2026-11-10 | Case-study content stays in `projects.ts`, validated by Zod                | Five projects need no content pipeline; Velite is deferred to the v1.1 blog              |
+| 2026-11-10 | Landing page shows `featured` projects only                                | Keeps "Selected work" curated at four; `/work` lists all five                            |
+| 2026-11-10 | Recipes App is labelled as an unfinished experiment                        | The repo is a routing/function scaffold; claiming otherwise would not survive a click    |
+| 2026-11-10 | Dark is server-rendered; no inline theme script                            | React 19 never executes a script re-rendered on locale change; light users get one frame |
+| 2026-11-10 | `ui/button` drops the icon-start padding override                          | The optical inset left 10px of asymmetry on small buttons, which reads as misalignment   |
+| 2026-11-10 | No CV download; the site carries the full stack instead                    | The portfolio is the destination — a PDF leaves and is forgotten                         |
 
 ## Changelog
 
@@ -169,6 +176,7 @@ there are no separate task files.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
+- **2026-11-10** — Skills block in About mirrors the CV's categories, so the stack is on-page without a downloadable document.
 - **2026-11-10** — Buttons with a leading icon keep symmetric padding; shadcn's tighter start padding read as misalignment at these sizes.
 - **2026-11-10** — Case studies for all five projects, `featured` flag on the landing page, and Recipes App reframed honestly.
 - **2026-11-10** — Case-study schema (problem, constraints, approach, decisions, outcome, lessons) plus a full Portfolio 2026 write-up in EN/NL/AR; 20 e2e tests.

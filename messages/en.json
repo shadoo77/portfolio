@@ -75,6 +75,15 @@
     "eyebrow": "03 — About",
     "title": "Frontend-focused, fullstack capable",
     "body": "7+ years in the React ecosystem, with a strong bias toward performance, accessibility and maintainable design systems. I've worked across product companies and agencies in the Netherlands, pairing pixel-perfect UI work with the backend when the problem calls for it.",
+    "skillsTitle": "Skills",
+    "skillGroups": {
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "data": "Data",
+      "tooling": "Tooling",
+      "ai": "AI workflows"
+    },
     "languagesTitle": "Languages",
     "languages": {
       "english": "English — professional",

@@ -79,3 +79,27 @@ test.describe("home", () => {
     expect(offset as number).toBeGreaterThanOrEqual(60);
   });
 });
+
+test.describe("about", () => {
+  test("lists the stack from the CV", async ({ page }) => {
+    await page.goto("/en");
+
+    const about = page.locator("#about");
+    await expect(about.getByText("Skills")).toBeVisible();
+
+    for (const skill of ["TypeScript", "Laravel", "PostgreSQL", "Cypress"]) {
+      await expect(about.getByText(skill, { exact: true })).toBeVisible();
+    }
+
+    await expect(about.getByText("Dutch — intermediate (B1–B2)")).toBeVisible();
+  });
+
+  test("localises the skill groups", async ({ page }) => {
+    await page.goto("/ar");
+
+    const about = page.locator("#about");
+    await expect(about.getByText("المهارات")).toBeVisible();
+    await expect(about.getByText("الواجهة الخلفية")).toBeVisible();
+    await expect(about.getByText("Laravel", { exact: true })).toBeVisible();
+  });
+});
