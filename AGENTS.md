@@ -108,9 +108,13 @@ docs/roadmap.md          # the only status tracker
 ## Git
 
 - Default branch: `master` · remote: `git@github.com:shadoo77/portfolio.git`
+- `master` is protected: direct pushes are rejected. Work on a branch, open a
+  pull request, and merge once `Lint, typecheck, build and e2e` passes.
 - Commit messages: short imperative subject, conventional-commit style
   (`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`).
 - Keep commits focused; do not commit `.env.local`, `.next/`, or `node_modules`.
+- Run `pnpm test:e2e` before opening a pull request; it builds and serves the
+  production output on port 3100.
 
 ## Do not
 
