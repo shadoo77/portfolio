@@ -4,7 +4,7 @@ Single source of truth for this project. Update this file whenever work lands �
 there are no separate task files.
 
 **Legend:** ✅ Done · 🚧 In progress · ⬜ Todo · 💡 Backlog
-**Last updated:** 2026-11-09
+**Last updated:** 2026-11-10
 
 ## At a glance
 
@@ -43,6 +43,7 @@ there are no separate task files.
 - ✅ Skip-to-content link, logical CSS properties (`ps`/`pe`/`ms`/`me`)
 - ✅ Mobile navigation sheet with section links, locale switcher, theme toggle
 - ✅ Sticky header that shrinks on scroll with reduced-motion support
+- ✅ Wordmark renders `siteConfig.shortName` (`Shadi`) with a localized home label
 
 ## Phase 2 — Core pages 🚧
 
@@ -151,4 +152,6 @@ there are no separate task files.
 - **2026-11-09** — Mobile navigation sheet added with section links, locale switcher, theme toggle and email CTA.
 - **2026-11-09** — Experience timeline section added between Work and About, sourced from the CV with EN/NL/AR copy.
 - **2026-11-09** — `/work` overview with `nuqs` tag filters and static `/work/[slug]` project pages in all three locales.
+- **2026-11-10** — Dutch level shown as `intermediate (B1–B2)` in all three locales; CV copy aligned.
+- **2026-11-10** — Wordmark simplified to `Shadi` from `siteConfig.shortName`; the trailing accent dot and the stale `shadi.dev` aria-label are gone.
 - **2026-11-09** — Fixed React 19 "script tag" console error by hoisting the theme init script into the layout head.

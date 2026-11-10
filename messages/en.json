@@ -10,7 +10,8 @@
     "contact": "Contact",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "home": "Home"
   },
   "Hero": {
     "availability": "Open to senior frontend roles",

@@ -53,7 +53,7 @@ export function MobileNav() {
             dir="ltr"
             className="font-mono text-lg font-semibold tracking-tight"
           >
-            shadi<span className="text-primary">.</span>
+            {siteConfig.shortName}
           </SheetTitle>
           <SheetClose asChild>
             <Button variant="ghost" size="icon-sm" aria-label={t("closeMenu")}>

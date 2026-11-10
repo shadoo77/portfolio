@@ -1,6 +1,7 @@
 import { Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/shared/icons";
 import { LocaleSwitcher } from "@/components/shared/locale-switcher";
@@ -18,9 +19,9 @@ export function Header() {
           href="/"
           dir="ltr"
           className="font-mono text-xl font-semibold tracking-tight transition-[font-size] duration-300 group-data-[scrolled=true]:text-lg motion-reduce:transition-none sm:text-2xl sm:group-data-[scrolled=true]:text-xl"
-          aria-label="shadi.dev — home"
+          aria-label={`${siteConfig.shortName} — ${t("home")}`}
         >
-          Shadi<span className="text-primary">.</span>
+          {siteConfig.shortName}
         </Link>
 
         <nav className="text-muted-foreground hidden items-center gap-8 text-[15px] transition-[gap] duration-300 group-data-[scrolled=true]:gap-6 md:flex">

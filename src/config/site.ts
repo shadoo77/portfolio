@@ -2,7 +2,7 @@ import { env } from "@/lib/env";
 
 export const siteConfig = {
   name: "Mohamad Shadi Omar",
-  shortName: "Shadi.",
+  shortName: "Shadi",
   url: env.NEXT_PUBLIC_SITE_URL,
   email: "shadi.omar077@gmail.com",
   location: "Zeist, Utrecht, Netherlands",
