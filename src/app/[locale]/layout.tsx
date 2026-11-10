@@ -40,6 +40,22 @@ const plexArabic = IBM_Plex_Sans_Arabic({
 // dark default, no system theme.
 const themeInitScript = `(function(){try{var stored=localStorage.getItem("theme");var theme=stored==="light"?"light":"dark";var root=document.documentElement;root.classList.remove("light","dark");root.classList.add(theme);root.style.colorScheme=theme;}catch(error){document.documentElement.classList.add("dark");}})();`;
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  jobTitle: "Senior Frontend Developer",
+  email: `mailto:${siteConfig.email}`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Zeist",
+    addressCountry: "NL",
+  },
+  sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
+  knowsLanguage: ["English", "Dutch", "Arabic"],
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -110,6 +126,11 @@ export default async function LocaleLayout({
       </head>
 
       <body className="flex min-h-svh flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+
         <a
           href="#main"
           className="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:fixed focus:inset-s-4 focus:top-4 focus:z-100 focus:rounded-md focus:px-4 focus:py-2 focus:text-sm focus:font-medium"

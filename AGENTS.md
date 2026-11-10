@@ -45,7 +45,10 @@ src/
     layout.tsx           # root layout: html/lang/dir, fonts, providers
     page.tsx             # landing page
     work/                # /work overview and /work/[slug] project pages
+    opengraph-image.tsx  # generated social card per locale
     not-found.tsx
+  app/sitemap.ts         # sitemap with hreflang alternates
+  app/robots.ts
   components/
     layout/              # header, mobile nav, footer
     sections/            # hero, selected-work, experience, about, contact

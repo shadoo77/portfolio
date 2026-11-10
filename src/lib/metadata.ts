@@ -8,6 +8,8 @@ export const ogLocales = {
   ar: "ar_AR",
 } as const;
 
+const ogImageSize = { width: 1200, height: 630 } as const;
+
 export function localizedMetadata({
   locale,
   path,
@@ -20,6 +22,13 @@ export function localizedMetadata({
   description: string;
 }): Metadata {
   const suffix = path ? `/${path.replace(/^\//, "")}` : "";
+  // Route-level metadata replaces `openGraph` wholesale, so the image has to be
+  // repeated here instead of relying on the layout's file convention.
+  const image = {
+    url: `/${locale}/opengraph-image`,
+    alt: siteConfig.name,
+    ...ogImageSize,
+  };
 
   return {
     title,
@@ -40,11 +49,13 @@ export function localizedMetadata({
       siteName: siteConfig.name,
       title,
       description,
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [image.url],
     },
   };
 }
