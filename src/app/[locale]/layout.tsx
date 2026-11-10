@@ -35,11 +35,6 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   preload: false,
 });
 
-// Runs before hydration so the stored theme is applied without a flash.
-// Kept in sync with the ThemeProvider config below: class attribute,
-// dark default, no system theme.
-const themeInitScript = `(function(){try{var stored=localStorage.getItem("theme");var theme=stored==="light"?"light":"dark";var root=document.documentElement;root.classList.remove("light","dark");root.classList.add(theme);root.style.colorScheme=theme;}catch(error){document.documentElement.classList.add("dark");}})();`;
-
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -117,14 +112,13 @@ export default async function LocaleLayout({
         geistMono.variable,
         // Only Arabic renders with Plex, so only Arabic should preload it.
         locale === "ar" && plexArabic.variable,
+        // Server-rendered default so the dark tokens and `dark:` variants are
+        // correct on first paint without an inline script. next-themes swaps
+        // this class after hydration when a visitor has chosen light.
+        "dark",
         "h-full",
       )}
     >
-      <head>
-        {/* Theme bootstrap: runs before paint to avoid a light flash. */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
-
       <body className="flex min-h-svh flex-col">
         <script
           type="application/ld+json"

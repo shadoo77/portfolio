@@ -14,11 +14,14 @@ test.describe("home", () => {
     }
   });
 
-  test("lists the four side projects", async ({ page }) => {
+  test("lists only the featured side projects", async ({ page }) => {
     await page.goto("/en");
 
     const work = page.locator("#work");
     await expect(work.getByRole("heading", { level: 3 })).toHaveCount(4);
+    // Recipes App is an experiment, so it stays in /work but not on the landing page.
+    await expect(work.getByText("Recipes App")).toHaveCount(0);
+    await expect(work.getByText("Portfolio 2026")).toBeVisible();
     await expect(
       work.getByRole("link", { name: "All projects" }),
     ).toBeVisible();

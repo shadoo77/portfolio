@@ -83,13 +83,17 @@ docs/roadmap.md          # the only status tracker
 - All user-facing copy lives in `messages/{en,nl,ar}.json`. Never hardcode
   strings in components.
 - Keep the three locale files structurally identical.
-- Content is typed via Velite + Zod once Phase 3 lands; do not hardcode project
-  data inside components — use `src/config/projects.ts` for now.
+- Content is typed and Zod-validated in `src/config` (`projects.ts` parses at
+  module load, so a missing locale or field fails the build). Velite is deferred
+  to the v1.1 blog; do not hardcode project data inside components.
 - The Work grid shows **only personal side projects** and must keep the note that
   company/client work was delivered through employers — never imply it is public.
-- Theme script lives in the layout head (`next/script` + `beforeInteractive`);
-  `next-themes`' own script is marked `application/json` to avoid the React 19
-  client-script warning. Keep both in sync with the `ThemeProvider` config.
+- Dark is the server-rendered default: `<html>` carries a static `dark` class so
+  the first paint is correct. There is **no inline theme script** — React 19
+  refuses to execute one that is re-rendered during client-side locale changes
+  and logs a console error. `next-themes` swaps the class after hydration; its
+  own script is marked `application/json` for the same reason. Keep the
+  `ThemeProvider` config in sync with that default.
 - Images use `next/image` with explicit dimensions or `sizes`.
 - Preserve accessibility: semantic landmarks, visible focus, AA contrast,
   labels on icon-only buttons.

@@ -55,6 +55,17 @@
     "back": "Alle projecten",
     "moreWork": "Terug naar alle projecten"
   },
+  "CaseStudy": {
+    "tldr": "TL;DR",
+    "problem": "Probleem",
+    "constraints": "Beperkingen",
+    "approach": "Aanpak",
+    "decisions": "Belangrijkste keuzes",
+    "alternative": "Alternatief",
+    "why": "Waarom",
+    "outcome": "Resultaat",
+    "lessons": "Wat ik anders zou doen"
+  },
   "Experience": {
     "eyebrow": "02 — Ervaring",
     "title": "Waar ik heb gewerkt",

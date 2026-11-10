@@ -55,6 +55,17 @@
     "back": "All projects",
     "moreWork": "Back to all projects"
   },
+  "CaseStudy": {
+    "tldr": "TL;DR",
+    "problem": "Problem",
+    "constraints": "Constraints",
+    "approach": "Approach",
+    "decisions": "Key decisions",
+    "alternative": "Alternative",
+    "why": "Why",
+    "outcome": "Outcome",
+    "lessons": "What I'd change"
+  },
   "Experience": {
     "eyebrow": "02 — Experience",
     "title": "Where I've worked",
