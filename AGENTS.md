@@ -83,8 +83,9 @@ docs/roadmap.md          # the only status tracker
 - All user-facing copy lives in `messages/{en,nl,ar}.json`. Never hardcode
   strings in components.
 - Keep the three locale files structurally identical.
-- Content is typed via Velite + Zod once Phase 3 lands; do not hardcode project
-  data inside components — use `src/config/projects.ts` for now.
+- Content is typed and Zod-validated in `src/config` (`projects.ts` parses at
+  module load, so a missing locale or field fails the build). Velite is deferred
+  to the v1.1 blog; do not hardcode project data inside components.
 - The Work grid shows **only personal side projects** and must keep the note that
   company/client work was delivered through employers — never imply it is public.
 - Theme script lives in the layout head (`next/script` + `beforeInteractive`);

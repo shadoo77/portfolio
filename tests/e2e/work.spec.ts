@@ -9,18 +9,18 @@ test.describe("work", () => {
     ).toBeVisible();
 
     const cards = page.locator("main article");
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(5);
 
     await page.getByRole("button", { name: "React", exact: true }).click();
     await expect(page).toHaveURL(/tag=React/);
-    await expect(cards).toHaveCount(3);
+    await expect(cards).toHaveCount(4);
     await expect(
       page.getByRole("button", { name: "React", exact: true }),
     ).toHaveAttribute("aria-pressed", "true");
 
     await page.getByRole("button", { name: "All", exact: true }).click();
     await expect(page).not.toHaveURL(/tag=/);
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(5);
   });
 
   test("filter state survives a reload", async ({ page }) => {
@@ -68,6 +68,46 @@ test.describe("work", () => {
     );
     await expect(
       page.getByRole("heading", { level: 1, name: "Page not found" }),
+    ).toBeVisible();
+  });
+});
+
+test.describe("portfolio case study", () => {
+  test("renders the full write-up", async ({ page }) => {
+    await page.goto("/en/work/portfolio");
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Portfolio 2026" }),
+    ).toBeVisible();
+
+    for (const section of [
+      "Problem",
+      "Constraints",
+      "Approach",
+      "Key decisions",
+      "Outcome",
+      "What I'd change",
+    ]) {
+      await expect(
+        page.getByRole("heading", { level: 2, name: section }),
+      ).toBeVisible();
+    }
+
+    await expect(page.getByText("TL;DR")).toBeVisible();
+    await expect(
+      page.getByText("React 19 useActionState instead of react-hook-form"),
+    ).toBeVisible();
+  });
+
+  test("renders the write-up in Arabic", async ({ page }) => {
+    await page.goto("/ar/work/portfolio");
+
+    await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
+    await expect(
+      page.getByRole("heading", { level: 2, name: "المشكلة" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 2, name: "أهم القرارات" }),
     ).toBeVisible();
   });
 });

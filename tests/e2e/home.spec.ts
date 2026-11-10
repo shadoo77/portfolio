@@ -14,11 +14,11 @@ test.describe("home", () => {
     }
   });
 
-  test("lists the four side projects", async ({ page }) => {
+  test("lists the five side projects", async ({ page }) => {
     await page.goto("/en");
 
     const work = page.locator("#work");
-    await expect(work.getByRole("heading", { level: 3 })).toHaveCount(4);
+    await expect(work.getByRole("heading", { level: 3 })).toHaveCount(5);
     await expect(
       work.getByRole("link", { name: "All projects" }),
     ).toBeVisible();

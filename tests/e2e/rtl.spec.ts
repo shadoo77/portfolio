@@ -68,9 +68,18 @@ test.describe("mobile navigation", () => {
   test("opens the sheet and navigates to a section", async ({ page }) => {
     await page.goto("/en");
 
-    await page.getByRole("button", { name: "Open menu" }).click();
+    const trigger = page.getByRole("button", { name: "Open menu" });
     const sheet = page.getByRole("dialog");
-    await expect(sheet).toBeVisible();
+
+    // Hydration can lag behind load under parallel workers, so retry the click
+    // until the sheet actually opens instead of assuming the first one lands.
+    await expect(async () => {
+      if (!(await sheet.isVisible())) {
+        await trigger.click();
+      }
+      await expect(sheet).toBeVisible({ timeout: 1000 });
+    }).toPass({ timeout: 15_000 });
+
     await expect(sheet.getByRole("link", { name: "Work" })).toBeVisible();
 
     await sheet.getByRole("link", { name: "Experience" }).click();

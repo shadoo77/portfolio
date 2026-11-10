@@ -55,6 +55,17 @@
     "back": "كل المشاريع",
     "moreWork": "العودة إلى كل المشاريع"
   },
+  "CaseStudy": {
+    "tldr": "باختصار",
+    "problem": "المشكلة",
+    "constraints": "القيود",
+    "approach": "المنهج",
+    "decisions": "أهم القرارات",
+    "alternative": "البديل",
+    "why": "السبب",
+    "outcome": "النتيجة",
+    "lessons": "ما كنت سأغيّره"
+  },
   "Experience": {
     "eyebrow": "٠٢ — الخبرة",
     "title": "أين عملت",

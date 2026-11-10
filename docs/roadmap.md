@@ -59,13 +59,16 @@ there are no separate task files.
 
 ## Phase 3 — Content ⬜
 
-- ⬜ Velite + Zod content collections for projects and posts
-- 🚧 4 case studies: CV Maker 2026, Recipes App, Next.js Viator, DeepNotLoud —
-  factual summaries and highlights are live in `src/config/projects.ts`, full
-  problem/outcome write-ups pending
+- ⬜ Velite + Zod content collections — deferred: `projects.ts` is Zod-validated
+  and typed, Velite earns its keep once the blog lands in v1.1
+- 🚧 5 case studies: Portfolio 2026 written in full (problem, constraints,
+  approach, decisions, outcome, lessons) in EN/NL/AR; CV Maker 2026, Recipes
+  App, Next.js Viator and DeepNotLoud still have overview + highlights only
 - ⬜ Screenshots and poster frames (own projects only — **no company/client material**)
-- ⬜ Project metadata: role, problem, outcome, lessons learned
-- ⬜ Translation strategy: EN/NL at launch, AR case studies in v1.1
+- 🚧 Project metadata: schema supports role-adjacent fields — problem,
+  constraints, approach, decisions, outcome and lessons are typed and optional
+- ✅ Translation strategy: every case-study field is `Localized<T>`, so a
+  missing locale fails the build
 
 ## Phase 4 — Dynamic features ⬜
 
@@ -139,7 +142,6 @@ there are no separate task files.
 | 2026-11-09 | Scroll-reveal motion moved to Phase 5                                      | Decoration only; it should not gate content work                                        |
 | 2026-11-09 | Work filters use `nuqs` query state                                        | Shareable, back-button-friendly URLs; no client data fetching                           |
 | 2026-11-09 | Project pages statically generated per slug and locale                     | Four projects × three locales prerender cleanly; `instant = false` allows params access |
-| 2026-11-10 | Case-study content lives in `projects.ts` for now                          | Ships real pages before Velite lands; migrate the same shape in Phase 3                 |
 | 2026-11-10 | `SITE_URL` has no `NEXT_PUBLIC_` prefix                                    | Only read server-side; keeps the value out of the browser bundle                        |
 | 2026-11-10 | Node pinned to `24.x` and build scripts allow-listed                       | Vercel warns about floating majors and silently skips native postinstall scripts        |
 | 2026-11-10 | Contact form uses React 19 `useActionState`, not `react-hook-form`         | One shared Zod schema covers client and server; avoids two extra dependencies           |
@@ -168,6 +170,7 @@ there are no separate task files.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
+- **2026-11-10** — Case-study schema (problem, constraints, approach, decisions, outcome, lessons) plus a full Portfolio 2026 write-up in EN/NL/AR; 20 e2e tests.
 - **2026-11-10** — Playwright smoke suite (18 tests) wired into CI; Vercel's production domain now outranks a stale `SITE_URL`.
 - **2026-11-10** — Sitemap with hreflang alternates, robots, a generated Open Graph image and a `Person` JSON-LD block.
 - **2026-11-10** — Arabic font no longer preloaded on EN/NL (4 unused weights, ~134 KB); AR keeps loading it on demand.
