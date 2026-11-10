@@ -92,7 +92,7 @@ there are no separate task files.
 
 ## Phase 6 — Launch ⬜
 
-- ✅ Deploy to Vercel (free `*.vercel.app` URL: `portfolio-orpin-eight-97`)
+- ✅ Deploy to Vercel (free `*.vercel.app` URL: `shadi-omar-portfolio.vercel.app`)
 - ⬜ Vercel Analytics + Speed Insights
 - ⬜ Branch protection on `master`
 - ⬜ Custom domain decision and connection
