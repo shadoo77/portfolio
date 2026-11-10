@@ -85,7 +85,7 @@ there are no separate task files.
 - ✅ `sitemap.ts` (with hreflang alternates) and `robots.ts`
 - ✅ Dynamic Open Graph image (`ImageResponse`), wired into every route's metadata
 - ✅ JSON-LD `Person` schema with `knowsLanguage`
-- ⬜ Playwright smoke tests including Arabic/RTL
+- ✅ Playwright smoke suite (18 tests: home, work filters, case study, contact form, AR/RTL, mobile nav)
 - ⬜ Lighthouse CI budgets (≥ 95 across categories)
 - ⬜ Scroll-reveal motion (Motion) with reduced-motion support
 - ⬜ Accessibility audit (keyboard, focus, contrast)
@@ -144,6 +144,8 @@ there are no separate task files.
 | 2026-11-10 | Contact form uses React 19 `useActionState`, not `react-hook-form`         | One shared Zod schema covers client and server; avoids two extra dependencies           |
 | 2026-11-10 | Missing `RESEND_API_KEY` hands the message to the visitor's mail client    | The form works before any mail account exists; a real mailto link backs the handoff     |
 | 2026-11-10 | IBM Plex Sans Arabic sets `preload: false`                                 | Four Arabic weights were preloaded on EN/NL where nothing renders them (~134 KB)        |
+| 2026-11-10 | The Vercel production domain outranks `SITE_URL`                           | Renaming the project can no longer leave canonicals pointing at a dead host             |
+| 2026-11-10 | Unknown slugs may answer `200` with `noindex` on the first hit             | PPR streams the shell before the page resolves; `notFound()` keeps the UI and noindex   |
 
 ## Changelog
 
@@ -163,6 +165,7 @@ there are no separate task files.
 - **2026-11-10** — Dutch level shown as `intermediate (B1–B2)` in all three locales; CV copy aligned.
 - **2026-11-10** — Wordmark simplified to `Shadi` from `siteConfig.shortName`; the trailing accent dot and the stale `shadi.dev` aria-label are gone.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
+- **2026-11-10** — Playwright smoke suite (18 tests) wired into CI; Vercel's production domain now outranks a stale `SITE_URL`.
 - **2026-11-10** — Sitemap with hreflang alternates, robots, a generated Open Graph image and a `Person` JSON-LD block.
 - **2026-11-10** — Arabic font no longer preloaded on EN/NL (4 unused weights, ~134 KB); AR keeps loading it on demand.
 - **2026-11-10** — Contact form shipped: shared Zod schema, server action with honeypot and rate limit, Resend delivery, mailto handoff when no key is configured, localized errors and `sonner` toasts.
