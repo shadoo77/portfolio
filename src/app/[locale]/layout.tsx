@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Direction } from "radix-ui";
@@ -120,6 +122,15 @@ export default async function LocaleLayout({
       )}
     >
       <body className="flex min-h-svh flex-col">
+        {/* Motion sets opacity:0 in the SSR HTML; without JS nothing would ever
+            reveal. This keeps the content readable when scripting is off. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              "<style>[data-reveal]{opacity:1!important;transform:none!important}</style>",
+          }}
+        />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
@@ -146,6 +157,13 @@ export default async function LocaleLayout({
                   <div className="flex-1">{children}</div>
                   <Footer />
                   <Toaster position="bottom-center" />
+                  {/* The scripts only exist on Vercel; locally they 404. */}
+                  {process.env.VERCEL ? (
+                    <>
+                      <Analytics />
+                      <SpeedInsights />
+                    </>
+                  ) : null}
                 </NextIntlClientProvider>
               </Direction.DirectionProvider>
             </NuqsAdapter>
