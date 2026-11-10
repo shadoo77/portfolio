@@ -18,9 +18,11 @@ export function SelectedWork() {
         />
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
-          ))}
+          {projects
+            .filter((project) => project.featured)
+            .map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} />
+            ))}
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4">

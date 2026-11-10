@@ -61,12 +61,11 @@ there are no separate task files.
 
 - ⬜ Velite + Zod content collections — deferred: `projects.ts` is Zod-validated
   and typed, Velite earns its keep once the blog lands in v1.1
-- 🚧 5 case studies: Portfolio 2026 written in full (problem, constraints,
-  approach, decisions, outcome, lessons) in EN/NL/AR; CV Maker 2026, Recipes
-  App, Next.js Viator and DeepNotLoud still have overview + highlights only
+- ✅ 5 case studies with problem, constraints, approach, decisions, outcome and
+  lessons in EN/NL/AR; Recipes App framed honestly as an unfinished experiment
 - ⬜ Screenshots and poster frames (own projects only — **no company/client material**)
-- 🚧 Project metadata: schema supports role-adjacent fields — problem,
-  constraints, approach, decisions, outcome and lessons are typed and optional
+- ✅ Project metadata: problem, constraints, approach, decisions, outcome and
+  lessons are typed and validated by Zod; every project now fills them
 - ✅ Translation strategy: every case-study field is `Localized<T>`, so a
   missing locale fails the build
 
@@ -170,6 +169,7 @@ there are no separate task files.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
+- **2026-11-10** — Case studies for all five projects, `featured` flag on the landing page, and Recipes App reframed honestly.
 - **2026-11-10** — Case-study schema (problem, constraints, approach, decisions, outcome, lessons) plus a full Portfolio 2026 write-up in EN/NL/AR; 20 e2e tests.
 - **2026-11-10** — Playwright smoke suite (18 tests) wired into CI; Vercel's production domain now outranks a stale `SITE_URL`.
 - **2026-11-10** — Sitemap with hreflang alternates, robots, a generated Open Graph image and a `Person` JSON-LD block.

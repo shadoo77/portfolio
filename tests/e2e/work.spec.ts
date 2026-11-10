@@ -44,7 +44,15 @@ test.describe("work", () => {
     await expect(
       page.getByRole("heading", { level: 2, name: "What I built" }),
     ).toBeVisible();
-    await expect(page.getByRole("heading", { level: 3 })).toHaveCount(3);
+    for (const highlight of [
+      "Four templates",
+      "Accent theming",
+      "Print-ready export",
+    ]) {
+      await expect(
+        page.getByRole("heading", { level: 3, name: highlight }),
+      ).toBeVisible();
+    }
 
     const canonical = page.locator('link[rel="canonical"]');
     await expect(canonical).toHaveAttribute(

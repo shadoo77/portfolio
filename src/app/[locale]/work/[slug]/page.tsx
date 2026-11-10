@@ -133,6 +133,23 @@ export default async function ProjectPage({
           <p className="text-base leading-relaxed">{study.overview[locale]}</p>
         </Section>
 
+        {study.highlights.length > 0 ? (
+          <Section title={t("highlightsTitle")}>
+            <ul className="space-y-6">
+              {study.highlights.map((highlight) => (
+                <li key={highlight.title[locale]}>
+                  <h3 className="font-semibold tracking-tight">
+                    {highlight.title[locale]}
+                  </h3>
+                  <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
+                    {highlight.body[locale]}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        ) : null}
+
         {study.problem ? (
           <Section title={caseStudyT("problem")}>
             <p className="text-base leading-relaxed">{study.problem[locale]}</p>
@@ -221,23 +238,6 @@ export default async function ProjectPage({
                     —
                   </span>
                   <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Section>
-        ) : null}
-
-        {study.highlights.length > 0 ? (
-          <Section title={t("highlightsTitle")}>
-            <ul className="space-y-6">
-              {study.highlights.map((highlight) => (
-                <li key={highlight.title[locale]}>
-                  <h3 className="font-semibold tracking-tight">
-                    {highlight.title[locale]}
-                  </h3>
-                  <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
-                    {highlight.body[locale]}
-                  </p>
                 </li>
               ))}
             </ul>
