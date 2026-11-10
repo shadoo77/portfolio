@@ -95,7 +95,7 @@ there are no separate task files.
 
 - ✅ Deploy to Vercel (free `*.vercel.app` URL: `shadi-omar-portfolio.vercel.app`)
 - ⬜ Vercel Analytics + Speed Insights
-- ⬜ Branch protection on `master`
+- ✅ Branch protection on `master`
 - ⬜ Custom domain decision and connection
 - ⬜ Final content and copy review in all three languages
 
@@ -166,6 +166,7 @@ there are no separate task files.
 - **2026-11-10** — Dutch level shown as `intermediate (B1–B2)` in all three locales; CV copy aligned.
 - **2026-11-10** — Wordmark simplified to `Shadi` from `siteConfig.shortName`; the trailing accent dot and the stale `shadi.dev` aria-label are gone.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
+- **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
 - **2026-11-10** — Playwright smoke suite (18 tests) wired into CI; Vercel's production domain now outranks a stale `SITE_URL`.
 - **2026-11-10** — Sitemap with hreflang alternates, robots, a generated Open Graph image and a `Person` JSON-LD block.
