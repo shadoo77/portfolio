@@ -45,7 +45,7 @@ export const projectSchema = z.object({
   tagline: localized(z.string().min(1)),
   repo: z.url().optional(),
   live: z.url().optional(),
-  accent: z.enum(["lime", "cyan", "violet", "amber"]),
+  accent: z.enum(["lime", "cyan", "violet", "amber", "emerald"]),
   /** Curated onto the landing page; /work always lists everything. */
   featured: z.boolean().default(true),
   caseStudy: caseStudySchema,
@@ -58,6 +58,219 @@ export type ProjectStep = z.infer<typeof stepSchema>;
 export type Localized<T> = Record<Locale, T>;
 
 export const projects: Project[] = z.array(projectSchema).parse([
+  {
+    slug: "travel-hint",
+    name: "Travel Hint",
+    year: "2026",
+    tags: ["Next.js", "TypeScript", "Hono", "Prisma", "React", "Neon"],
+    tagline: {
+      en: "Short, honest travel hints: one city, one habit worth stealing — with search, autocomplete and favourites.",
+      nl: "Korte, eerlijke reistips: één stad, één gewoonte die je overneemt — met zoeken, autocomplete en favorieten.",
+      ar: "نصائح سفر قصيرة وصادقة: مدينة واحدة وعادة واحدة تستحق التجربة — مع بحث وإكمال تلقائي ومفضّلة.",
+    },
+    repo: "https://github.com/shadoo77/travel-hint",
+    live: "https://travel-hint.vercel.app",
+    accent: "emerald",
+    caseStudy: {
+      overview: {
+        en: "A travel hint feed backed by a real Postgres database: a Hono API behind a typed RPC client, TanStack Query hydrated from the server, and anonymous favourites that update optimistically.",
+        nl: "Een feed met reistips op een echte Postgres-database: een Hono-API achter een getypeerde RPC-client, TanStack Query gehydrateerd vanaf de server en anonieme favorieten die optimistisch bijwerken.",
+        ar: "تدفّق نصائح سفر مدعوم بقاعدة بيانات Postgres حقيقية: واجهة Hono خلف عميل RPC آمن النوع، وTanStack Query مُهيّأ من الخادم، ومفضّلة مجهولة تُحدَّث تفاؤليًا.",
+      },
+      tldr: {
+        en: [
+          "Hono 4 mounted as one catch-all route, consumed through a typed RPC client.",
+          "The first page of results is fetched on the server and hydrated into TanStack Query.",
+          "Favourites need no account: a visitor id in localStorage, with optimistic updates.",
+        ],
+        nl: [
+          "Hono 4 als één catch-all route, gebruikt via een getypeerde RPC-client.",
+          "De eerste pagina resultaten komt van de server en hydrateert in TanStack Query.",
+          "Favorieten zonder account: een bezoekers-id in localStorage, met optimistische updates.",
+        ],
+        ar: [
+          "Hono 4 في مسار شامل واحد، يُستخدم عبر عميل RPC آمن النوع.",
+          "الصفحة الأولى من النتائج تُجلب على الخادم وتُهيّأ داخل TanStack Query.",
+          "مفضّلة بلا حساب: معرّف زائر في localStorage مع تحديثات تفاؤلية.",
+        ],
+      },
+      problem: {
+        en: "Travel writing online is mostly top-ten lists. I wanted a small, opinionated feed — one city, one habit worth stealing — where searching for a city actually changes the URL, so a good hint can be shared.",
+        nl: "Reisartikelen online zijn vooral top-tienlijstjes. Ik wilde een kleine, uitgesproken feed — één stad, één gewoonte die je overneemt — waarbij zoeken op een stad echt de URL verandert, zodat een goede tip deelbaar is.",
+        ar: "الكتابة عن السفر على الإنترنت غالبًا قوائم أفضل عشرة. أردت تدفّقًا صغيرًا واضح الرأي — مدينة واحدة وعادة واحدة تستحق التجربة — حيث يغيّر البحث عن مدينة الرابط فعلًا، فتصبح النصيحة الجيدة قابلة للمشاركة.",
+      },
+      constraints: {
+        en: [
+          "Free Vercel hosting with a serverless API.",
+          "A real database, not mock JSON, so the data model had to earn its keep.",
+          "No accounts: favourites had to work without a sign-up.",
+        ],
+        nl: [
+          "Gratis Vercel-hosting met een serverless API.",
+          "Een echte database in plaats van mock-JSON, dus het datamodel moest zich bewijzen.",
+          "Geen accounts: favorieten moesten werken zonder registratie.",
+        ],
+        ar: [
+          "استضافة Vercel مجانية مع واجهة API بلا خوادم.",
+          "قاعدة بيانات حقيقية لا JSON وهمي، فكان على نموذج البيانات أن يبرّر نفسه.",
+          "بلا حسابات: وجب أن تعمل المفضّلة دون تسجيل.",
+        ],
+      },
+      approach: {
+        en: [
+          {
+            title: "One API, one route",
+            body: "Hono is mounted through @hono/vercel behind a single catch-all route, so the API is one app instead of a folder of handlers.",
+          },
+          {
+            title: "Typed end to end",
+            body: "The Hono app type feeds a typed RPC client, so TanStack Query hooks know their params and payloads at compile time.",
+          },
+          {
+            title: "Seed the cache on the server",
+            body: "The home page reads the first page of articles, dehydrates the query client and hands it to HydrationBoundary, so first paint has content and the infinite feed continues on the client.",
+          },
+          {
+            title: "Anonymous favourites",
+            body: "A visitor id lives in localStorage; the mutation updates optimistically and broadcasts a window event so every card stays in sync.",
+          },
+        ],
+        nl: [
+          {
+            title: "Eén API, één route",
+            body: "Hono draait via @hono/vercel achter één catch-all route, zodat de API één app is in plaats van een map vol handlers.",
+          },
+          {
+            title: "Typeveilig van begin tot eind",
+            body: "Het Hono-app-type voedt een getypeerde RPC-client, dus TanStack Query-hooks kennen hun params en payloads bij compilatie.",
+          },
+          {
+            title: "De cache op de server vullen",
+            body: "De homepagina leest de eerste pagina artikelen, dehydrateert de query-client en geeft die aan HydrationBoundary, zodat de eerste paint content heeft en de infinite feed op de client verdergaat.",
+          },
+          {
+            title: "Anonieme favorieten",
+            body: "Een bezoekers-id staat in localStorage; de mutatie werkt optimistisch bij en stuurt een window-event zodat elke kaart synchroon blijft.",
+          },
+        ],
+        ar: [
+          {
+            title: "واجهة واحدة ومسار واحد",
+            body: "Hono يعمل عبر @hono/vercel خلف مسار شامل واحد، فتصبح الواجهة تطبيقًا واحدًا لا مجلدًا من المعالجات.",
+          },
+          {
+            title: "آمن النوع من الطرفين",
+            body: "نوع تطبيق Hono يغذّي عميل RPC آمن النوع، فتعرف خطافات TanStack Query معاملاتها وحمولاتها عند الترجمة.",
+          },
+          {
+            title: "تهيئة الذاكرة على الخادم",
+            body: "الصفحة الرئيسية تقرأ أول صفحة من المقالات وتُهيّئ ذاكرة الاستعلام وتسلّمها إلى HydrationBoundary، فأول عرض يحمل محتوى ويتابع التدفّق اللانهائي على العميل.",
+          },
+          {
+            title: "مفضّلة مجهولة",
+            body: "معرّف الزائر في localStorage؛ والتعديل يُحدَّث تفاؤليًا ويبثّ حدثًا على النافذة لتبقى كل البطاقات متزامنة.",
+          },
+        ],
+      },
+      decisions: {
+        en: [
+          {
+            decision: "Hono over separate route handlers",
+            alternative: "One route.ts per endpoint",
+            reason:
+              "A single typed app gives end-to-end types plus one place for validation and error handling.",
+          },
+          {
+            decision: "Prisma 7 with the Neon adapter",
+            alternative: "Raw SQL or a lighter query builder",
+            reason:
+              "Migrations, a typed client and array columns (story, tags) without writing SQL by hand.",
+          },
+          {
+            decision: "Anonymous favourites over authentication",
+            alternative: "Accounts and sessions",
+            reason:
+              "A hint feed does not justify a sign-up wall; a visitor id covers the whole use case.",
+          },
+        ],
+        nl: [
+          {
+            decision: "Hono in plaats van losse route-handlers",
+            alternative: "Een route.ts per endpoint",
+            reason:
+              "Eén getypeerde app geeft types van begin tot eind plus één plek voor validatie en foutafhandeling.",
+          },
+          {
+            decision: "Prisma 7 met de Neon-adapter",
+            alternative: "Ruwe SQL of een lichtere query builder",
+            reason:
+              "Migraties, een getypeerde client en array-kolommen (story, tags) zonder handgeschreven SQL.",
+          },
+          {
+            decision: "Anonieme favorieten in plaats van authenticatie",
+            alternative: "Accounts en sessies",
+            reason:
+              "Een tipsfeed rechtvaardigt geen registratiemuur; een bezoekers-id dekt de hele use case.",
+          },
+        ],
+        ar: [
+          {
+            decision: "Hono بدل معالجات مسار منفصلة",
+            alternative: "ملف route.ts لكل نقطة",
+            reason:
+              "تطبيق واحد آمن النوع يمنح أنواعًا من الطرفين ومكانًا واحدًا للتحقق ومعالجة الأخطاء.",
+          },
+          {
+            decision: "Prisma 7 مع محوّل Neon",
+            alternative: "SQL خام أو منشئ استعلامات أخف",
+            reason:
+              "ترحيلات وعميل آمن النوع وأعمدة مصفوفة (story وtags) دون كتابة SQL يدويًا.",
+          },
+          {
+            decision: "مفضّلة مجهولة بدل المصادقة",
+            alternative: "حسابات وجلسات",
+            reason:
+              "تدفّق نصائح لا يبرّر جدار تسجيل؛ ومعرّف زائر يغطي الحالة كاملة.",
+          },
+        ],
+      },
+      outcome: {
+        en: [
+          "Searchable infinite feed with a shareable ?q= URL.",
+          "Autocomplete across destinations and article titles.",
+          "Server-rendered first paint with a hydrated query cache.",
+          "Deployed on Vercel against a Neon Postgres database.",
+        ],
+        nl: [
+          "Doorzoekbare infinite feed met een deelbare ?q=-URL.",
+          "Autocomplete over bestemmingen en artikeltitels.",
+          "Server-gerenderde eerste paint met een gehydrateerde query-cache.",
+          "Gedeployed op Vercel op een Neon Postgres-database.",
+        ],
+        ar: [
+          "تدفّق لا نهائي قابل للبحث برابط ?q= قابل للمشاركة.",
+          "إكمال تلقائي عبر الوجهات وعناوين المقالات.",
+          "أول عرض من الخادم مع ذاكرة استعلام مُهيّأة.",
+          "منشور على Vercel فوق قاعدة بيانات Neon Postgres.",
+        ],
+      },
+      lessons: {
+        en: [
+          "The home page is force-dynamic, so it gives up caching for a first page that rarely changes; a cached shell would be faster.",
+          "The favourites endpoint is open by design but has no per-visitor rate limit, which is the first thing to add.",
+        ],
+        nl: [
+          "De homepagina is force-dynamic en geeft dus caching op voor een eerste pagina die zelden verandert; een gecachte shell zou sneller zijn.",
+          "Het favorieten-endpoint is bewust open, maar heeft geen limiet per bezoeker; dat is het eerste dat ik zou toevoegen.",
+        ],
+        ar: [
+          "الصفحة الرئيسية force-dynamic، فتتخلّى عن التخزين المؤقت لأول صفحة نادرًا ما تتغيّر؛ هيكل مخزّن سيكون أسرع.",
+          "نقطة المفضّلة مفتوحة بالتصميم لكن بلا حدّ لكل زائر، وهذا أول ما سأضيفه.",
+        ],
+      },
+      highlights: [],
+    },
+  },
   {
     slug: "cv-maker-2026",
     name: "CV Maker 2026",
@@ -500,6 +713,7 @@ export const projects: Project[] = z.array(projectSchema).parse([
     },
     repo: "https://github.com/shadoo77/nextjs-viator",
     accent: "cyan",
+    featured: false,
     caseStudy: {
       overview: {
         en: "A travel booking interface modelled on Viator: localized browsing, search results, tour detail pages and filters, backed by a proxied CMS API.",
