@@ -9,18 +9,18 @@ test.describe("work", () => {
     ).toBeVisible();
 
     const cards = page.locator("main article");
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
 
     await page.getByRole("button", { name: "React", exact: true }).click();
     await expect(page).toHaveURL(/tag=React/);
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(5);
     await expect(
       page.getByRole("button", { name: "React", exact: true }),
     ).toHaveAttribute("aria-pressed", "true");
 
     await page.getByRole("button", { name: "All", exact: true }).click();
     await expect(page).not.toHaveURL(/tag=/);
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
   });
 
   test("filter state survives a reload", async ({ page }) => {

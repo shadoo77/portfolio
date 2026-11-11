@@ -10,6 +10,7 @@ const accents: Record<Project["accent"], string> = {
   cyan: "from-cyan-400/25 via-sky-400/10 to-transparent",
   violet: "from-violet-400/25 via-fuchsia-400/10 to-transparent",
   amber: "from-amber-400/25 via-orange-400/10 to-transparent",
+  emerald: "from-emerald-400/25 via-teal-400/10 to-transparent",
 };
 
 export function ProjectCard({

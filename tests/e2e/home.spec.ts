@@ -22,6 +22,9 @@ test.describe("home", () => {
     // Recipes App is an experiment, so it stays in /work but not on the landing page.
     await expect(work.getByText("Recipes App")).toHaveCount(0);
     await expect(work.getByText("Portfolio 2026")).toBeVisible();
+    await expect(work.getByText("Trav Hint")).toBeVisible();
+    // Next.js Viator stays in /work but no longer leads the landing page.
+    await expect(work.getByText("Next.js Viator")).toHaveCount(0);
     await expect(
       work.getByRole("link", { name: "All projects" }),
     ).toBeVisible();
