@@ -60,7 +60,7 @@ export type Localized<T> = Record<Locale, T>;
 export const projects: Project[] = z.array(projectSchema).parse([
   {
     slug: "travel-hint",
-    name: "Trav Hint",
+    name: "Travel Hint",
     year: "2026",
     tags: ["Next.js", "TypeScript", "Hono", "Prisma", "React", "Neon"],
     tagline: {
