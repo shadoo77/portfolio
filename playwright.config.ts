@@ -28,6 +28,8 @@ export default defineConfig({
   ],
   webServer: {
     command: startCommand,
+    // The suite must never send real mail, even when a local .env holds a key.
+    env: { RESEND_API_KEY: "" },
     url: `${baseURL}/en`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

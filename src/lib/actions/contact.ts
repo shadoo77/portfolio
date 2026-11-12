@@ -100,9 +100,7 @@ export async function sendContactMessage(
   const resend = new Resend(env.RESEND_API_KEY);
 
   const { error } = await resend.emails.send({
-    // Resend's shared sender only delivers to the account owner, which covers
-    // this form until a sending domain is verified.
-    from: "Portfolio <onboarding@resend.dev>",
+    from: env.RESEND_FROM,
     to: siteConfig.email,
     replyTo: parsed.data.email,
     subject: `Portfolio contact — ${parsed.data.name}`,
@@ -114,8 +112,13 @@ export async function sendContactMessage(
   });
 
   if (error) {
-    console.error("Contact form delivery failed:", error);
-    return { status: "error" };
+    // A revoked key, quota limit or unverified sender should not dead-end the
+    // visitor: hand the message to their mail client instead.
+    console.error(
+      "Contact form delivery failed, falling back to mailto:",
+      error,
+    );
+    return { status: "mailto", mailto };
   }
 
   return { status: "success" };
