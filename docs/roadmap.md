@@ -117,7 +117,8 @@ there are no separate task files.
 - ✅ DeepNotLoud: public repo at `shadoo77/DeepNotLoud`
 - ✅ CV Maker 2026: public repo and live GitHub Pages demo
 - ✅ `SITE_URL` set on Vercel for Production and Preview
-- ⬜ `RESEND_API_KEY` for the contact form (mailto fallback until then)
+- 🚧 `RESEND_API_KEY` set on Vercel — delivery blocked until the Resend account
+  email matches `siteConfig.email`, or a sending domain is verified
 - ⬜ `GITHUB_TOKEN` for the live GitHub section
 - ⬜ Domain name (optional, can launch on the Vercel URL)
 
@@ -160,6 +161,9 @@ there are no separate task files.
 | 2026-11-10 | axe-core runs in the Playwright suite                                      | Turns the accessibility claim into something CI enforces, across EN/NL/AR                |
 | 2026-11-10 | Analytics and Speed Insights render only when `VERCEL` is set              | Their scripts 404 anywhere else, which failed best-practices locally                     |
 | 2026-11-11 | Travel Hint added first; Next.js Viator leaves the landing page            | Newest work leads; Viator is the oldest and has no live demo                             |
+| 2026-11-12 | `RESEND_FROM` makes the sender configurable                                | Verifying a domain later becomes a dashboard edit, not a code change                     |
+| 2026-11-12 | A failed send falls back to the mailto handoff                             | A revoked key or unverified sender should never dead-end the visitor                     |
+| 2026-11-12 | The e2e suite blanks `RESEND_API_KEY`                                      | A local key would otherwise send real mail from the test run                             |
 
 ## Changelog
 
@@ -181,6 +185,7 @@ there are no separate task files.
 - **2026-11-10** — Deployed to Vercel; `SITE_URL` replaces `NEXT_PUBLIC_SITE_URL` and falls back to `VERCEL_PROJECT_PRODUCTION_URL`. Node pinned to `24.x`, `@parcel/watcher` and `@swc/core` build scripts allow-listed.
 - **2026-11-10** — Branch protection enabled on `master`; changes must pass lint, typecheck, build and the e2e suite.
 - **2026-11-10** — Lighthouse audit of the live site: performance 95 (EN) and 99 (AR), accessibility, best practices and SEO 100 in both.
+- **2026-11-12** — Contact form: configurable `RESEND_FROM`, mailto fallback on delivery failure, and a hermetic test environment.
 - **2026-11-11** — Travel Hint added as the sixth project with a full case study in EN/NL/AR; Next.js Viator moved off the landing page.
 - **2026-11-10** — Reveal reimplemented with IntersectionObserver + CSS (−36 KB JS) after motion cost ~5 Lighthouse points.
 - **2026-11-10** — Scroll-reveal motion with reduced-motion and no-JS fallbacks, Vercel Analytics + Speed Insights, and axe-core accessibility checks in CI.

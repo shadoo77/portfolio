@@ -37,16 +37,24 @@ if (
   );
 }
 
+/** Empty values are treated as absent so a blank dashboard variable is harmless. */
+const emptyToUndefined = (value: string | undefined) =>
+  value && value.trim().length > 0 ? value : undefined;
+
 const envSchema = z.object({
   SITE_URL: z.url().default(resolvedSiteUrl),
   RESEND_API_KEY: z.string().min(1).optional(),
+  // Sender address. Resend's shared test sender only delivers to the account
+  // owner, so this becomes `Portfolio <hello@yourdomain>` once one is verified.
+  RESEND_FROM: z.string().min(1).default("Portfolio <onboarding@resend.dev>"),
   GITHUB_TOKEN: z.string().min(1).optional(),
 });
 
 const parsed = envSchema.safeParse({
   SITE_URL: resolvedSiteUrl,
-  RESEND_API_KEY: process.env.RESEND_API_KEY,
-  GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+  RESEND_API_KEY: emptyToUndefined(process.env.RESEND_API_KEY),
+  RESEND_FROM: emptyToUndefined(process.env.RESEND_FROM),
+  GITHUB_TOKEN: emptyToUndefined(process.env.GITHUB_TOKEN),
 });
 
 if (!parsed.success) {
